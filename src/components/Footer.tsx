@@ -76,13 +76,13 @@ export default function Footer() {
               Montreux Group LLC is a Registered Investment Advisor with FINRA. CRD Number: 338982.
               Registration with FINRA does not imply a certain level of skill or training.
             </p>
-            <a
-              href="#"
+            <Link
+              to="/disclosures"
               className="font-body text-xs text-gold underline underline-offset-2 mt-3 inline-block hover:text-gold-light transition-colors duration-200"
             >
-              For important disclosures about our services, fees, and conflicts of interest, please click
-              to review our Form ADV Brochure.
-            </a>
+              For important disclosures about our services, fees, and conflicts of interest, please review
+              our Disclosures page.
+            </Link>
           </div>
         </div>
 
@@ -94,12 +94,20 @@ export default function Footer() {
           <p className="font-body text-xs text-cream/30">
             © 2026 Montreux Group LLC. All rights reserved.
           </p>
-          <a
-            href="#"
-            className="font-body text-xs text-cream/30 hover:text-gold transition-colors duration-200"
-          >
-            Privacy Policy
-          </a>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            <Link
+              to="/disclosures"
+              className="font-body text-xs text-cream/30 hover:text-gold transition-colors duration-200"
+            >
+              Disclosures
+            </Link>
+            <Link
+              to="/privacy-policy"
+              className="font-body text-xs text-cream/30 hover:text-gold transition-colors duration-200"
+            >
+              Privacy Policy
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

@@ -8,6 +8,8 @@ import InvestmentManagementPage from './pages/InvestmentManagementPage';
 import FinancialPlanningPage from './pages/FinancialPlanningPage';
 import AccountingTaxPage from './pages/AccountingTaxPage';
 import ClientPortalPage from './pages/ClientPortalPage';
+import DisclosuresPage from './pages/DisclosuresPage';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 
 export default function App() {
   return (
@@ -20,6 +22,8 @@ export default function App() {
         <Route path="/financial-planning" element={<FinancialPlanningPage />} />
         <Route path="/accounting-tax" element={<AccountingTaxPage />} />
         <Route path="/client-portal" element={<ClientPortalPage />} />
+        <Route path="/disclosures" element={<DisclosuresPage />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>
