@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: 'Cormorant Garamond', serif;
+  }
+}
+
+/* Hero scan line */
+@keyframes scanLine {
+  from {
+    transform: scaleX(0);
+    opacity: 0.6;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 0.15;
+  }
+}
+
+.animate-scan-line {
+  transform-origin: left center;
+  animation: scanLine 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  transform: scaleX(0);
+}
+
+/* Hero SVG line draw-in */
+@keyframes drawLine {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-draw-line-1 {
+  animation: drawLine 1.0s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+}
+
+.animate-draw-line-2 {
+  animation: drawLine 1.0s cubic-bezier(0.4, 0, 0.2, 1) 0.55s forwards;
+}
+
+.animate-draw-line-3 {
+  animation: drawLine 1.0s cubic-bezier(0.4, 0, 0.2, 1) 0.75s forwards;
+}
+
+.animate-draw-line-4 {
+  animation: drawLine 0.9s cubic-bezier(0.4, 0, 0.2, 1) 0.95s forwards;
+}
+
+.animate-draw-line-5 {
+  animation: drawLine 0.9s cubic-bezier(0.4, 0, 0.2, 1) 1.1s forwards;
+}
+
+.animate-draw-line-6 {
+  animation: drawLine 0.8s cubic-bezier(0.4, 0, 0.2, 1) 1.25s forwards;
+}
+
+/* Hero fade-up animation — delayed to follow line sequence */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s ease forwards;
+  opacity: 0;
+}
+
+.animate-fade-up-1 {
+  animation: fadeUp 0.8s ease 1.4s forwards;
+  opacity: 0;
+}
+
+.animate-fade-up-2 {
+  animation: fadeUp 0.8s ease 1.6s forwards;
+  opacity: 0;
+}
+
+.animate-fade-up-3 {
+  animation: fadeUp 0.8s ease 1.8s forwards;
+  opacity: 0;
+}
+
+.animate-fade-up-4 {
+  animation: fadeUp 0.8s ease 2.0s forwards;
+  opacity: 0;
+}
+
+/* Scroll-triggered fade-up for sections */
+@keyframes scrollFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+}
+
+.scroll-reveal.is-visible {
+  animation: scrollFadeUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* About section geometric pulse */
+@keyframes geometricPulse {
+  0%, 100% { opacity: 0.10; }
+  50% { opacity: 0.22; }
+}
+
+.animate-geometric-pulse {
+  animation: geometricPulse 4s ease-in-out infinite;
+}
+
+/* Shake animation for form validation */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+.shake {
+  animation: shake 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .animate-scan-line,
+  .animate-draw-line-1,
+  .animate-draw-line-2,
+  .animate-draw-line-3,
+  .animate-draw-line-4,
+  .animate-draw-line-5,
+  .animate-draw-line-6 {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    stroke-dashoffset: 0;
+  }
+
+  .animate-fade-up,
+  .animate-fade-up-1,
+  .animate-fade-up-2,
+  .animate-fade-up-3,
+  .animate-fade-up-4 {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .scroll-reveal.is-visible {
+    animation: none;
+  }
+
+  .animate-geometric-pulse {
+    animation: none;
+    opacity: 0.10;
+  }
+
+  .shake {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
