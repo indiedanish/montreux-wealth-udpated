@@ -245,7 +245,7 @@ export default function ClientPortalPage() {
                     variant="primary"
                     label="Financial Planning"
                     sublabel="Plans, projections & milestones"
-                    href="https://wealth.emaplan.com/ema/SignIn?ema"
+                    href="https://wealth.emaplan.com/ema/SignIn?ema%2Fria%2Fmontreuxwealth"
                   />
                 </div>
                 <p className="font-body text-xs text-cream/20 italic tracking-wide mt-8">
