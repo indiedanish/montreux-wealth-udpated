@@ -193,7 +193,7 @@ export default function ClientPortalPage() {
                     variant="primary"
                     label="Portfolio Management"
                     sublabel="Account performance & statements"
-                    href="https://login.bdreporting.com/Auth/SignIne"
+                    href="https://login.bdreporting.com/Auth/Montreux/SignIn"
                   />
                   <PortalButton
                     variant="secondary"
