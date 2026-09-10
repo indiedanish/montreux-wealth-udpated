@@ -1,3 +1,7 @@
+'use client';
+
+import { useAnalytics } from '@/hooks/useAnalytics';
+
 // ─── Icons ────────────────────────────────────────────────────────────────────
 
 function LockIcon() {
@@ -38,9 +42,11 @@ interface PortalButtonProps {
   variant: 'primary' | 'secondary';
   href?: string;
   disabled?: boolean;
+  portalType: string;
+  onTrack: (props: { portal_type: string; label: string; external_url: string }) => void;
 }
 
-function PortalButton({ label, sublabel, variant, href, disabled }: PortalButtonProps) {
+function PortalButton({ label, sublabel, variant, href, disabled, portalType, onTrack }: PortalButtonProps) {
   const base =
     'w-full md:w-auto flex items-center gap-3 px-7 py-3.5 font-body text-xs tracking-widest uppercase font-medium transition-all duration-300';
 
@@ -77,6 +83,7 @@ function PortalButton({ label, sublabel, variant, href, disabled }: PortalButton
       href={href}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={() => href && onTrack({ portal_type: portalType, label, external_url: href })}
       className={`${base} ${activeStyles}`}
     >
       <div className="flex flex-col items-start gap-0.5 flex-1">
@@ -97,6 +104,12 @@ function PortalButton({ label, sublabel, variant, href, disabled }: PortalButton
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function ClientPortalPage() {
+  const { track, events } = useAnalytics();
+
+  const trackPortal = (props: { portal_type: string; label: string; external_url: string }) => {
+    track(events.PORTAL_LINK_CLICKED, props);
+  };
+
   return (
     <main className="bg-[#1C1C1E]">
       {/* ── Section 1: Page Hero ─────────────────────────────────────── */}
@@ -194,12 +207,16 @@ export default function ClientPortalPage() {
                     label="Portfolio Management"
                     sublabel="Account performance & statements"
                     href="https://login.bdreporting.com/Auth/Montreux/SignIn"
+                    portalType="investment_portfolio"
+                    onTrack={trackPortal}
                   />
                   <PortalButton
                     variant="secondary"
                     label="401(k) Manager"
                     sublabel="Retirement account access"
                     href="https://login.bdreporting.com/Auth/SignIn"
+                    portalType="investment_401k"
+                    onTrack={trackPortal}
                   />
                 </div>
               </div>
@@ -246,6 +263,8 @@ export default function ClientPortalPage() {
                     label="Financial Planning"
                     sublabel="Plans, projections & milestones"
                     href="https://wealth.emaplan.com/ema/SignIn?ema%2Fria%2Fmontreuxwealth"
+                    portalType="financial_planning"
+                    onTrack={trackPortal}
                   />
                 </div>
                 <p className="font-body text-xs text-cream/20 italic tracking-wide mt-8">
@@ -295,12 +314,16 @@ export default function ClientPortalPage() {
                     label="Coming Soon"
                     sublabel="Available soon"
                     disabled
+                    portalType="tax_accounting"
+                    onTrack={trackPortal}
                   />
                   <PortalButton
                     variant="secondary"
                     label="Coming Soon"
                     sublabel="Available soon"
                     disabled
+                    portalType="tax_accounting_secondary"
+                    onTrack={trackPortal}
                   />
                 </div>
               </div>

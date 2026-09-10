@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -122,9 +123,11 @@ function StrategyCardItem({ name, description }: StrategyCard) {
 function DesktopTabs({
   activeTab,
   setActiveTab,
+  onTabChange,
 }: {
   activeTab: number;
   setActiveTab: (i: number) => void;
+  onTabChange: (tabName: string) => void;
 }) {
   return (
     <div className="hidden md:block border-b border-gray-200">
@@ -132,7 +135,10 @@ function DesktopTabs({
         {tabs.map((tab, i) => (
           <button
             key={tab.label}
-            onClick={() => setActiveTab(i)}
+            onClick={() => {
+              onTabChange(tab.label);
+              setActiveTab(i);
+            }}
             className={`font-body text-xs tracking-widest uppercase font-medium px-8 py-5 cursor-pointer transition-colors duration-200 -mb-px ${
               activeTab === i
                 ? 'text-navy border-b-2 border-gold'
@@ -147,7 +153,7 @@ function DesktopTabs({
   );
 }
 
-function MobileAccordion() {
+function MobileAccordion({ onTabChange }: { onTabChange: (tabName: string) => void }) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
@@ -157,7 +163,10 @@ function MobileAccordion() {
         return (
           <div key={tab.label}>
             <button
-              onClick={() => setOpenIndex(isOpen ? null : i)}
+              onClick={() => {
+                if (!isOpen) onTabChange(tab.label);
+                setOpenIndex(isOpen ? null : i);
+              }}
               className="w-full flex items-center justify-between px-0 py-5 text-left"
             >
               <span className="font-body text-xs tracking-widest uppercase font-medium text-navy">
@@ -211,6 +220,11 @@ function TabPanel({ tab, visible }: { tab: Tab; visible: boolean }) {
 
 export default function InvestmentManagementPage() {
   const [activeTab, setActiveTab] = useState(0);
+  const { track, events } = useAnalytics();
+
+  const handleTabChange = (tabName: string) => {
+    track(events.INVESTMENT_TAB_CHANGED, { tab_name: tabName });
+  };
 
   return (
     <main>
@@ -291,7 +305,7 @@ export default function InvestmentManagementPage() {
       <section className="bg-white py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-10">
           {/* Desktop tabs */}
-          <DesktopTabs activeTab={activeTab} setActiveTab={setActiveTab} />
+          <DesktopTabs activeTab={activeTab} setActiveTab={setActiveTab} onTabChange={handleTabChange} />
 
           {/* Desktop panels */}
           <div className="hidden md:block relative">
@@ -301,7 +315,7 @@ export default function InvestmentManagementPage() {
           </div>
 
           {/* Mobile accordion */}
-          <MobileAccordion />
+          <MobileAccordion onTabChange={handleTabChange} />
         </div>
       </section>
 

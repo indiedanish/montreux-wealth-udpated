@@ -1,15 +1,18 @@
+import CalendlyViewTracker from '@/components/analytics/CalendlyViewTracker';
 import CalendlyEmbed from '@/components/CalendlyEmbed';
 
 type ContactProps = {
   eyebrow?: string;
   title?: string;
   subtitle?: string;
+  trackingLocation?: string;
 };
 
 export default function Contact({
   eyebrow = 'Schedule a Meeting',
   title = 'Every Meaningful Partnership Begins with a Single Conversation.',
   subtitle = 'Pick a time that works for you. One of our principals will meet with you personally — 30 minutes, no obligation.',
+  trackingLocation = 'homepage_contact',
 }: ContactProps) {
   return (
     <section id="contact" className="bg-cream py-24 md:py-32">
@@ -29,7 +32,9 @@ export default function Contact({
         </p>
 
         <div className="max-w-3xl mx-auto mt-12">
-          <CalendlyEmbed />
+          <CalendlyViewTracker location={trackingLocation}>
+            <CalendlyEmbed />
+          </CalendlyViewTracker>
           <p className="text-center mt-6 font-body text-xs text-text-muted">
             Your information is handled with complete confidentiality.
           </p>

@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 const highlights = [
   'Compare 401(k) only vs. 401(k) + Cash Balance Plan',
@@ -7,6 +10,8 @@ const highlights = [
 ];
 
 export default function CalculatorPreviewCard() {
+  const { track, events } = useAnalytics();
+
   return (
     <section id="calculator" className="bg-cream py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
@@ -25,7 +30,6 @@ export default function CalculatorPreviewCard() {
 
         <div className="mt-12 bg-navy shadow-xl overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2">
-            {/* Preview stats */}
             <div className="p-10 md:p-14 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-gold/20">
               <p className="font-body text-xs tracking-widest uppercase text-gold">Example Result</p>
               <p className="font-heading font-light text-6xl md:text-7xl text-gold mt-4 leading-none">$835K+</p>
@@ -38,7 +42,6 @@ export default function CalculatorPreviewCard() {
               </p>
             </div>
 
-            {/* Highlights + CTA */}
             <div className="p-10 md:p-14 flex flex-col justify-center bg-[#111d2e]">
               <ul className="space-y-5 mb-10">
                 {highlights.map((item) => (
@@ -61,6 +64,13 @@ export default function CalculatorPreviewCard() {
 
               <Link
                 href="/cash-balance-calculator"
+                onClick={() =>
+                  track(events.CTA_CLICKED, {
+                    cta_text: 'Calculate My Tax Savings',
+                    cta_location: 'cash_balance_plans_preview',
+                    destination: '/cash-balance-calculator',
+                  })
+                }
                 className="group flex items-center justify-center gap-3 w-full bg-gold text-navy px-10 py-5 text-base md:text-lg tracking-widest uppercase font-semibold hover:bg-gold-light transition-all duration-300 font-body shadow-lg shadow-gold/20 hover:shadow-gold/40 hover:scale-[1.02] active:scale-[0.99]"
               >
                 Calculate My Tax Savings

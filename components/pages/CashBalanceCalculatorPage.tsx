@@ -1,8 +1,10 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import CalendlyViewTracker from '@/components/analytics/CalendlyViewTracker';
 import CashBalanceCalculator from '@/components/CashBalanceCalculator';
 import CalendlyEmbed from '@/components/CalendlyEmbed';
+import { useAnalytics } from '@/hooks/useAnalytics';
 import { formatCurrency, type CalculatorResults } from '@/utils/cashBalanceCalc';
 
 function StepIndicator({ step }: { step: 1 | 2 }) {
@@ -48,6 +50,7 @@ function StepIndicator({ step }: { step: 1 | 2 }) {
 }
 
 export default function CashBalanceCalculatorPage() {
+  const { track, events } = useAnalytics();
   const [step, setStep] = useState<1 | 2>(1);
   const [results, setResults] = useState<CalculatorResults | null>(null);
   const bookingRef = useRef<HTMLDivElement>(null);
@@ -58,14 +61,23 @@ export default function CashBalanceCalculatorPage() {
   };
 
   const goBackToCalculator = () => {
+    track(events.CALCULATOR_BACK_CLICKED, { source: 'calculator_booking_step' });
     setStep(1);
   };
 
+  const bookingViewTracked = useRef(false);
+
   useEffect(() => {
-    if (step === 2) {
-      bookingRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (step !== 2) return;
+    if (!bookingViewTracked.current) {
+      bookingViewTracked.current = true;
+      track(events.CALCULATOR_BOOKING_VIEWED, {
+        additional_tax_savings: results?.additionalTaxSavings,
+        lifetime_tax_savings: results?.lifetimeTaxSavings,
+      });
     }
-  }, [step]);
+    bookingRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, [step, events.CALCULATOR_BOOKING_VIEWED, results, track]);
 
   return (
     <main className="bg-cream min-h-screen">
@@ -123,7 +135,9 @@ export default function CashBalanceCalculatorPage() {
               </p>
             </div>
 
-            <CalendlyEmbed height="620px" />
+            <CalendlyViewTracker location="calculator_booking_step">
+              <CalendlyEmbed height="620px" />
+            </CalendlyViewTracker>
 
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-6">
               <button

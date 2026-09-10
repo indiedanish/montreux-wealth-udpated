@@ -1,11 +1,18 @@
 'use client';
 
 import Link from 'next/link';
+import { useAnalytics } from '@/hooks/useAnalytics';
 import { ADDRESS, CONTACT_EMAIL } from '@/lib/site';
 
 export default function Footer() {
+  const { track, events } = useAnalytics();
+
+  const trackNav = (item: string, destination: string) => {
+    track(events.NAV_CLICKED, { nav_item: item, destination, nav_location: 'footer' });
+  };
   const scrollToContact = (e: React.MouseEvent) => {
     e.preventDefault();
+    trackNav('Contact', '/#contact');
     const el = document.getElementById('contact');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
@@ -19,7 +26,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <div className="flex flex-wrap justify-between items-start gap-12">
           <div>
-            <Link href="/" className="flex items-center gap-3">
+            <Link href="/" onClick={() => trackNav('logo', '/')} className="flex items-center gap-3">
               <span className="font-heading text-xl tracking-widest text-cream">MONTREUX</span>
               <div className="w-px h-5 bg-gold/40" />
               <span className="font-body text-xs tracking-widest text-gold font-light uppercase">
@@ -42,42 +49,49 @@ export default function Footer() {
           <nav className="flex flex-col space-y-3" aria-label="Footer navigation">
             <Link
               href="/"
+              onClick={() => trackNav('Home', '/')}
               className="font-body text-xs tracking-widest uppercase text-cream/60 hover:text-gold transition-colors duration-200"
             >
               Home
             </Link>
             <Link
               href="/investment-management"
+              onClick={() => trackNav('Investment Management', '/investment-management')}
               className="font-body text-xs tracking-widest uppercase text-cream/60 hover:text-gold transition-colors duration-200"
             >
               Investment Management
             </Link>
             <Link
               href="/financial-planning"
+              onClick={() => trackNav('Financial Planning', '/financial-planning')}
               className="font-body text-xs tracking-widest uppercase text-cream/60 hover:text-gold transition-colors duration-200"
             >
               Financial Planning
             </Link>
             <Link
               href="/accounting-tax"
+              onClick={() => trackNav('Accounting & Tax', '/accounting-tax')}
               className="font-body text-xs tracking-widest uppercase text-cream/60 hover:text-gold transition-colors duration-200"
             >
               Accounting & Tax
             </Link>
             <Link
               href="/cash-balance-plans"
+              onClick={() => trackNav('Cash Balance Plans', '/cash-balance-plans')}
               className="font-body text-xs tracking-widest uppercase text-cream/60 hover:text-gold transition-colors duration-200"
             >
               Cash Balance Plans
             </Link>
             <Link
               href="/cash-balance-calculator"
+              onClick={() => trackNav('Tax Savings Calculator', '/cash-balance-calculator')}
               className="font-body text-xs tracking-widest uppercase text-cream/60 hover:text-gold transition-colors duration-200"
             >
               Tax Savings Calculator
             </Link>
             <Link
               href="/client-portal"
+              onClick={() => trackNav('Client Portal', '/client-portal')}
               className="font-body text-xs tracking-widest uppercase text-cream/60 hover:text-gold transition-colors duration-200"
             >
               Client Portal

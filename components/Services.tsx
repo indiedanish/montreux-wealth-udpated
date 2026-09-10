@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 const cards = [
   {
@@ -51,6 +52,7 @@ const cards = [
 ];
 
 export default function Services() {
+  const { track, events } = useAnalytics();
   const headerRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -127,6 +129,13 @@ export default function Services() {
               {/* Learn More */}
               <Link
                 href={card.to}
+                onClick={() =>
+                  track(events.SERVICE_CARD_CLICKED, {
+                    service_name: card.title,
+                    source: 'homepage_services',
+                    destination: card.to,
+                  })
+                }
                 className="font-body text-xs tracking-widest uppercase text-gold hover:text-navy transition-colors duration-200 mt-8 block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2"
               >
                 Learn More →

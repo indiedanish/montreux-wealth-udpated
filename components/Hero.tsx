@@ -1,9 +1,17 @@
 'use client';
 import Link from 'next/link';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 export default function Hero() {
+  const { track, events } = useAnalytics();
+
   const scrollToContact = (e: React.MouseEvent) => {
     e.preventDefault();
+    track(events.CTA_CLICKED, {
+      cta_text: 'Begin the Conversation',
+      cta_location: 'hero',
+      destination: '/#contact',
+    });
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -110,6 +118,13 @@ export default function Hero() {
           </a>
           <Link
             href="/cash-balance-calculator"
+            onClick={() =>
+              track(events.CTA_CLICKED, {
+                cta_text: 'Tax Savings Calculator',
+                cta_location: 'hero',
+                destination: '/cash-balance-calculator',
+              })
+            }
             className="inline-flex items-center justify-center w-full sm:w-auto min-h-[3.25rem] px-8 py-3.5 text-sm tracking-widest uppercase font-semibold leading-none border border-gold text-gold box-border hover:bg-gold hover:text-navy transition-all duration-300 font-body"
           >
             Tax Savings Calculator →

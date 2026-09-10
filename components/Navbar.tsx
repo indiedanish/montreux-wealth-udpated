@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -11,6 +12,11 @@ export default function Navbar() {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const router = useRouter();
+  const { track, events } = useAnalytics();
+
+  const trackNav = (item: string, destination: string) => {
+    track(events.NAV_CLICKED, { nav_item: item, destination, nav_location: 'navbar' });
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -47,8 +53,9 @@ export default function Navbar() {
     { label: 'Cash Balance Plans', href: '/cash-balance-plans' },
   ];
 
-  const handleAnchorNav = (sectionId: string) => {
+  const handleAnchorNav = (sectionId: string, label: string) => {
     setMobileOpen(false);
+    trackNav(label, `/#${sectionId}`);
     if (pathname === '/') {
       document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
     } else {
@@ -64,7 +71,7 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 flex-shrink-0">
+          <Link href="/" onClick={() => trackNav('logo', '/')} className="flex items-center gap-3 flex-shrink-0">
             <span className="font-heading text-xl tracking-widest text-cream">MONTREUX</span>
             <div className="w-px h-5 bg-gold/40" />
             <span className="font-body text-xs tracking-widest text-gold font-light uppercase">
@@ -75,6 +82,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-10">
             <Link
               href="/"
+              onClick={() => trackNav('Home', '/')}
               className="font-body text-xs tracking-widest uppercase text-cream hover:text-gold transition-colors duration-200"
             >
               Home
@@ -82,7 +90,10 @@ export default function Navbar() {
 
             <div className="relative" ref={dropdownRef}>
               <button
-                onClick={() => setServicesOpen((v) => !v)}
+                onClick={() => {
+                  if (!servicesOpen) track(events.SERVICES_MENU_OPENED, { nav_location: 'navbar' });
+                  setServicesOpen((v) => !v);
+                }}
                 className="font-body text-xs tracking-widest uppercase text-cream hover:text-gold transition-colors duration-200 flex items-center gap-1"
               >
                 Services
@@ -103,6 +114,7 @@ export default function Navbar() {
                     <Link
                       key={s.href}
                       href={s.href}
+                      onClick={() => trackNav(s.label, s.href)}
                       className="block px-6 py-4 font-body text-xs tracking-widest uppercase text-cream/80 hover:text-gold hover:bg-gold/5 transition-colors duration-200 border-b border-gold/10 last:border-b-0"
                     >
                       {s.label}
@@ -113,14 +125,14 @@ export default function Navbar() {
             </div>
 
             <button
-              onClick={() => handleAnchorNav('about-section')}
+              onClick={() => handleAnchorNav('about-section', 'About')}
               className="font-body text-xs tracking-widest uppercase text-cream hover:text-gold transition-colors duration-200"
             >
               About
             </button>
 
             <button
-              onClick={() => handleAnchorNav('contact')}
+              onClick={() => handleAnchorNav('contact', 'Contact')}
               className="font-body text-xs tracking-widest uppercase text-cream hover:text-gold transition-colors duration-200"
             >
               Contact
@@ -130,6 +142,7 @@ export default function Navbar() {
           <div className="flex items-center gap-6">
             <Link
               href="/client-portal"
+              onClick={() => trackNav('Client Portal', '/client-portal')}
               className={`hidden md:inline-flex px-6 py-2.5 text-xs tracking-widest uppercase font-medium transition-all duration-300 font-body ${
                 pathname === '/client-portal'
                   ? 'bg-gold text-navy'
@@ -140,7 +153,12 @@ export default function Navbar() {
             </Link>
 
             <button
-              onClick={() => setMobileOpen((v) => !v)}
+              onClick={() => {
+                setMobileOpen((v) => {
+                  if (!v) track(events.MOBILE_MENU_OPENED, { nav_location: 'navbar' });
+                  return !v;
+                });
+              }}
               className="md:hidden flex flex-col gap-1.5 p-1"
               aria-label="Toggle menu"
             >
@@ -166,6 +184,7 @@ export default function Navbar() {
         <div className="flex flex-col items-center gap-8">
           <Link
             href="/"
+            onClick={() => trackNav('Home', '/')}
             className="font-body text-sm tracking-widest uppercase text-cream hover:text-gold transition-colors duration-200"
           >
             Home
@@ -174,25 +193,27 @@ export default function Navbar() {
             <Link
               key={s.href}
               href={s.href}
+              onClick={() => trackNav(s.label, s.href)}
               className="font-body text-sm tracking-widest uppercase text-cream/70 hover:text-gold transition-colors duration-200"
             >
               {s.label}
             </Link>
           ))}
           <button
-            onClick={() => handleAnchorNav('about-section')}
+            onClick={() => handleAnchorNav('about-section', 'About')}
             className="font-body text-sm tracking-widest uppercase text-cream hover:text-gold transition-colors duration-200"
           >
             About
           </button>
           <button
-            onClick={() => handleAnchorNav('contact')}
+            onClick={() => handleAnchorNav('contact', 'Contact')}
             className="font-body text-sm tracking-widest uppercase text-cream hover:text-gold transition-colors duration-200"
           >
             Contact
           </button>
           <Link
             href="/client-portal"
+            onClick={() => trackNav('Client Portal', '/client-portal')}
             className="border border-gold text-gold px-8 py-3 text-xs tracking-widest uppercase font-medium hover:bg-gold hover:text-navy transition-all duration-300 font-body mt-4"
           >
             Client Portal

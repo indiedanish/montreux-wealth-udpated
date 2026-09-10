@@ -1,6 +1,11 @@
+'use client';
+
 import Link from 'next/link';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 export default function CashBalancePromo() {
+  const { track, events } = useAnalytics();
+
   return (
     <section className="bg-navy py-20 md:py-24">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
@@ -23,6 +28,13 @@ export default function CashBalancePromo() {
             </p>
             <Link
               href="/cash-balance-plans"
+              onClick={() =>
+                track(events.CASH_BALANCE_PROMO_CLICKED, {
+                  link_type: 'learn_more',
+                  destination: '/cash-balance-plans',
+                  source: 'homepage_promo',
+                })
+              }
               className="inline-block mt-6 font-body text-sm text-gold/80 hover:text-gold transition-colors tracking-wide"
             >
               Learn about Cash Balance Plans →
@@ -38,6 +50,13 @@ export default function CashBalancePromo() {
             </p>
             <Link
               href="/cash-balance-calculator"
+              onClick={() =>
+                track(events.CASH_BALANCE_PROMO_CLICKED, {
+                  link_type: 'calculator',
+                  destination: '/cash-balance-calculator',
+                  source: 'homepage_promo',
+                })
+              }
               className="group flex items-center justify-center gap-3 w-full mt-8 bg-gold text-navy px-10 py-5 text-base tracking-widest uppercase font-semibold hover:bg-gold-light transition-all duration-300 font-body shadow-lg shadow-gold/20"
             >
               Calculate My Tax Savings

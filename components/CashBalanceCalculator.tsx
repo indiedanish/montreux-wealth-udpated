@@ -1,5 +1,6 @@
 'use client';
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
+import { useAnalytics } from '@/hooks/useAnalytics';
 import {
   LIMIT_401K_2026,
   computeCalculatorResults,
@@ -14,6 +15,15 @@ type CashBalanceCalculatorProps = {
 };
 
 export default function CashBalanceCalculator({ onContinue }: CashBalanceCalculatorProps) {
+  const { track, events } = useAnalytics();
+  const hasStarted = useRef(false);
+
+  const markStarted = () => {
+    if (hasStarted.current) return;
+    hasStarted.current = true;
+    track(events.CALCULATOR_STARTED, { source: 'cash_balance_calculator' });
+  };
+
   const [age, setAge] = useState(45);
   const [income, setIncome] = useState(500000);
   const [contribution401k, setContribution401k] = useState(40000);
@@ -58,7 +68,10 @@ export default function CashBalanceCalculator({ onContinue }: CashBalanceCalcula
                 min={30}
                 max={70}
                 value={age}
-                onChange={(e) => setAge(Number(e.target.value))}
+                onChange={(e) => {
+                  markStarted();
+                  setAge(Number(e.target.value));
+                }}
                 className="w-full accent-gold"
               />
             </div>
@@ -74,7 +87,10 @@ export default function CashBalanceCalculator({ onContinue }: CashBalanceCalcula
                 max={2000000}
                 step={25000}
                 value={income}
-                onChange={(e) => setIncome(Number(e.target.value))}
+                onChange={(e) => {
+                  markStarted();
+                  setIncome(Number(e.target.value));
+                }}
                 className="w-full accent-gold"
               />
               <p className="font-heading text-xl text-navy mt-2">{formatCurrency(income)}</p>
@@ -91,7 +107,10 @@ export default function CashBalanceCalculator({ onContinue }: CashBalanceCalcula
                 max={LIMIT_401K_2026}
                 step={5000}
                 value={contribution401k}
-                onChange={(e) => setContribution401k(Number(e.target.value))}
+                onChange={(e) => {
+                  markStarted();
+                  setContribution401k(Number(e.target.value));
+                }}
                 className="w-full accent-gold"
               />
               <p className="font-body text-sm text-text-muted mt-2">
@@ -107,7 +126,10 @@ export default function CashBalanceCalculator({ onContinue }: CashBalanceCalcula
                 <select
                   id="cb-federal"
                   value={federalRate}
-                  onChange={(e) => setFederalRate(Number(e.target.value))}
+                  onChange={(e) => {
+                    markStarted();
+                    setFederalRate(Number(e.target.value));
+                  }}
                   className={selectClass}
                 >
                   <option value={0.24}>24%</option>
@@ -123,7 +145,10 @@ export default function CashBalanceCalculator({ onContinue }: CashBalanceCalcula
                 <select
                   id="cb-state"
                   value={stateProfile}
-                  onChange={(e) => setStateProfile(e.target.value as StateTaxProfile)}
+                  onChange={(e) => {
+                    markStarted();
+                    setStateProfile(e.target.value as StateTaxProfile);
+                  }}
                   className={selectClass}
                 >
                   <option value="high">High (~10%)</option>
@@ -140,7 +165,10 @@ export default function CashBalanceCalculator({ onContinue }: CashBalanceCalcula
               <select
                 id="cb-employees"
                 value={employees}
-                onChange={(e) => setEmployees(e.target.value as EmployeeCount)}
+                onChange={(e) => {
+                  markStarted();
+                  setEmployees(e.target.value as EmployeeCount);
+                }}
                 className={selectClass}
               >
                 <option value="solo">Just me (+ spouse)</option>
@@ -160,7 +188,10 @@ export default function CashBalanceCalculator({ onContinue }: CashBalanceCalcula
                 min={5}
                 max={25}
                 value={yearsToRetirement}
-                onChange={(e) => setYearsToRetirement(Number(e.target.value))}
+                onChange={(e) => {
+                  markStarted();
+                  setYearsToRetirement(Number(e.target.value));
+                }}
                 className="w-full accent-gold"
               />
             </div>
@@ -201,7 +232,21 @@ export default function CashBalanceCalculator({ onContinue }: CashBalanceCalcula
           {onContinue && (
             <button
               type="button"
-              onClick={() => onContinue(results)}
+              onClick={() => {
+                track(events.CALCULATOR_COMPLETED, {
+                  age,
+                  income,
+                  contribution_401k: contribution401k,
+                  federal_rate: federalRate,
+                  state_profile: stateProfile,
+                  employees,
+                  years_to_retirement: yearsToRetirement,
+                  additional_tax_savings: results.additionalTaxSavings,
+                  lifetime_tax_savings: results.lifetimeTaxSavings,
+                  cb_contribution: results.cbContribution,
+                });
+                onContinue(results);
+              }}
               className="group flex items-center justify-center gap-3 w-full bg-gold text-navy px-8 py-5 text-sm md:text-base tracking-widest uppercase font-semibold hover:bg-gold-light transition-all duration-300 font-body shadow-lg shadow-gold/20"
             >
               Book My Free 30-Min Review
