@@ -11,7 +11,7 @@ type ContactProps = {
 export default function Contact({
   eyebrow = 'Schedule a Meeting',
   title = 'Every Meaningful Partnership Begins with a Single Conversation.',
-  subtitle = 'Pick a time that works for you. One of our principals will meet with you personally — 30 minutes, no obligation.',
+  subtitle = 'Pick a time that works for you. One of our principals will meet with you personally - 30 minutes, no obligation.',
   trackingLocation = 'homepage_contact',
 }: ContactProps) {
   return (

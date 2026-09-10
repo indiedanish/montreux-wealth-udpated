@@ -28,7 +28,7 @@ export default function OrganizationSchema() {
         },
         areaServed: 'US',
         description:
-          'Integrated wealth management — investment management, financial planning, and tax services for high-net-worth individuals and business owners.',
+          'Integrated wealth management - investment management, financial planning, and tax services for high-net-worth individuals and business owners.',
         knowsAbout: [
           'Investment Management',
           'Financial Planning',

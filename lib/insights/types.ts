@@ -23,7 +23,7 @@ export type InsightPost = {
   publishedAt: string;
   updatedAt: string;
   readTimeMinutes: number;
-  /** Direct answer for AEO — shown prominently at top */
+  /** Direct answer for AEO - shown prominently at top */
   directAnswer: string;
   sections: InsightSection[];
   faq?: InsightFaqItem[];

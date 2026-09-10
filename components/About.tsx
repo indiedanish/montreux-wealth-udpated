@@ -51,13 +51,13 @@ export default function About() {
             <p className="font-body font-light text-cream/70 text-base leading-relaxed mt-8">
               Montreux Wealth Management was founded on a conviction that most people who accumulate
               significant wealth are, paradoxically, underserved by the financial industry. They have an
-              accountant, an investment advisor, and perhaps a planner — but rarely does anyone hold the
+              accountant, an investment advisor, and perhaps a planner - but rarely does anyone hold the
               complete picture.
             </p>
 
             <p className="font-body font-light text-cream/70 text-base leading-relaxed mt-6">
               We were founded to solve that problem. Not by offering more products, but by offering genuine
-              integration — a single advisory relationship that spans investment management, financial
+              integration - a single advisory relationship that spans investment management, financial
               planning, and taxation, coordinated by a team that works as one.
             </p>
 
@@ -80,7 +80,7 @@ export default function About() {
           {/* Right: Geometric composition */}
           <div ref={geoRef} className="scroll-reveal flex items-center justify-center" style={{ animationDelay: '150ms', transitionDelay: '150ms' }}>
             <div className="relative w-80 h-80 md:w-96 md:h-96">
-              {/* Outermost rectangle — slow pulse */}
+              {/* Outermost rectangle - slow pulse */}
               <div
                 className="absolute inset-0 animate-geometric-pulse"
                 style={{ border: '1px solid rgba(201,168,76,0.10)' }}

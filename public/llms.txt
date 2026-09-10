@@ -1,6 +1,6 @@
 # Montreux Wealth Management
 
-> Integrated wealth management firm in New York — investment management, financial planning, and tax services for high-net-worth individuals and business owners.
+> Integrated wealth management firm in New York - investment management, financial planning, and tax services for high-net-worth individuals and business owners.
 
 ## Key Pages
 
@@ -10,7 +10,7 @@
 - [Accounting & Tax](https://montreuxwm.com/accounting-tax)
 - [Cash Balance Plans](https://montreuxwm.com/cash-balance-plans)
 - [Cash Balance Tax Calculator](https://montreuxwm.com/cash-balance-calculator)
-- [Insights — Wealth & Tax Guides](https://montreuxwm.com/insights)
+- [Insights - Wealth & Tax Guides](https://montreuxwm.com/insights)
 - [Disclosures](https://montreuxwm.com/disclosures)
 - [Privacy Policy](https://montreuxwm.com/privacy-policy)
 

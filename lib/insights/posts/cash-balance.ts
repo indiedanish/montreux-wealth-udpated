@@ -5,13 +5,13 @@ export const cashBalancePosts: InsightPost[] = [
     slug: 'what-is-a-cash-balance-plan',
     title: 'What Is a Cash Balance Plan? A Guide for Business Owners',
     description:
-      'A Cash Balance Plan is an IRS-approved defined benefit retirement plan that lets business owners deduct far more than a 401(k) alone — often $150K–$300K+ per year.',
+      'A Cash Balance Plan is an IRS-approved defined benefit retirement plan that lets business owners deduct far more than a 401(k) alone - often $150K–$300K+ per year.',
     category: 'cash-balance',
     publishedAt: '2026-03-01',
     updatedAt: '2026-09-10',
     readTimeMinutes: 6,
     directAnswer:
-      'A Cash Balance Plan is a type of defined benefit retirement plan that allows business owners to make large, tax-deductible contributions based on actuarial funding formulas — often $150,000 to $300,000 or more annually, compared with roughly $70,000 combined limits on a 401(k) and profit-sharing plan for 2026.',
+      'A Cash Balance Plan is a type of defined benefit retirement plan that allows business owners to make large, tax-deductible contributions based on actuarial funding formulas - often $150,000 to $300,000 or more annually, compared with roughly $70,000 combined limits on a 401(k) and profit-sharing plan for 2026.',
     sections: [
       {
         heading: 'How a Cash Balance Plan works',
@@ -23,8 +23,8 @@ export const cashBalancePosts: InsightPost[] = [
       {
         heading: 'Who typically uses Cash Balance Plans',
         paragraphs: [
-          'Cash Balance Plans are most common among owners of professional practices, partnerships, and closely held businesses with consistent high income — often $300,000 or more annually. They work best when the owner can commit to funding the plan for several years and when employee census costs can be managed through plan design.',
-          'Montreux designs Cash Balance Plans in coordination with your broader investment, tax, and estate strategy — not as a standalone product.',
+          'Cash Balance Plans are most common among owners of professional practices, partnerships, and closely held businesses with consistent high income - often $300,000 or more annually. They work best when the owner can commit to funding the plan for several years and when employee census costs can be managed through plan design.',
+          'Montreux designs Cash Balance Plans in coordination with your broader investment, tax, and estate strategy - not as a standalone product.',
         ],
       },
       {
@@ -74,7 +74,7 @@ export const cashBalancePosts: InsightPost[] = [
       {
         heading: 'Where Cash Balance Plans add capacity',
         paragraphs: [
-          'A Cash Balance Plan adds a defined benefit layer. Actuarial formulas — based on age, compensation, and years to retirement — determine deductible contributions that can far exceed 401(k) caps.',
+          'A Cash Balance Plan adds a defined benefit layer. Actuarial formulas - based on age, compensation, and years to retirement - determine deductible contributions that can far exceed 401(k) caps.',
           'The most common structure pairs a 401(k) profit-sharing plan with a Cash Balance Plan so owners capture both employee deferrals and large employer contributions to the defined benefit plan.',
         ],
       },
@@ -106,7 +106,7 @@ export const cashBalancePosts: InsightPost[] = [
         heading: 'Strong fit indicators',
         paragraphs: [
           'Owners in their 40s and 50s with consistent W-2 or self-employment income often see the largest actuarial contributions because funding timelines are shorter.',
-          'Professional practices — law, medicine, consulting, real estate — frequently qualify when partner groups align on plan participation and funding.',
+          'Professional practices - law, medicine, consulting, real estate - frequently qualify when partner groups align on plan participation and funding.',
         ],
       },
       {
@@ -133,7 +133,7 @@ export const cashBalancePosts: InsightPost[] = [
     slug: 'cash-balance-plan-and-401k-together',
     title: 'Can You Have a Cash Balance Plan and a 401(k) Together?',
     description:
-      'Yes — most business owners combine a 401(k) profit-sharing plan with a Cash Balance Plan to maximize tax-deductible retirement contributions.',
+      'Yes - most business owners combine a 401(k) profit-sharing plan with a Cash Balance Plan to maximize tax-deductible retirement contributions.',
     category: 'cash-balance',
     publishedAt: '2026-03-22',
     updatedAt: '2026-09-10',
@@ -164,7 +164,7 @@ export const cashBalancePosts: InsightPost[] = [
     slug: 'cash-balance-plan-contribution-limits-by-age',
     title: 'How Much Can a Business Owner Contribute to a Cash Balance Plan?',
     description:
-      'Typical Cash Balance Plan contribution ranges by age and income for business owners. Actuarial limits vary — see illustrative ranges for ages 45–60.',
+      'Typical Cash Balance Plan contribution ranges by age and income for business owners. Actuarial limits vary - see illustrative ranges for ages 45–60.',
     category: 'cash-balance',
     publishedAt: '2026-04-01',
     updatedAt: '2026-09-10',
@@ -195,7 +195,7 @@ export const cashBalancePosts: InsightPost[] = [
     slug: 'cash-balance-plan-tax-deadlines',
     title: 'Cash Balance Plan Tax Deadlines: Key Dates for Business Owners',
     description:
-      'Important tax calendar dates for Cash Balance Plan design and funding — Q1, Q2, Q3 estimated taxes, and year-end planning windows.',
+      'Important tax calendar dates for Cash Balance Plan design and funding - Q1, Q2, Q3 estimated taxes, and year-end planning windows.',
     category: 'cash-balance',
     publishedAt: '2026-04-08',
     updatedAt: '2026-09-10',
@@ -204,19 +204,19 @@ export const cashBalancePosts: InsightPost[] = [
       'Cash Balance Plan decisions align with your business tax calendar: Q1 (April 15) is when many owners finalize prior-year deductions; June and September estimated tax payments are key checkpoints to model contribution ranges; year-end is the last window to establish a new plan for the current tax year if not already in place.',
     sections: [
       {
-        heading: 'April 15 — Q1 estimated tax',
+        heading: 'April 15 - Q1 estimated tax',
         paragraphs: [
           'If you are evaluating a plan for the prior tax year, actuarial design and adoption must typically be completed before your filing deadline (including extensions strategy with your CPA). Early-year modeling prevents missed deduction opportunities.',
         ],
       },
       {
-        heading: 'June 15 and September 15 — mid-year planning',
+        heading: 'June 15 and September 15 - mid-year planning',
         paragraphs: [
           'Use these estimated tax dates to reconcile projected income with planned contributions. Adjusting compensation, profit distributions, and contribution targets mid-year reduces surprises at year-end.',
         ],
       },
       {
-        heading: 'January — final estimated payment',
+        heading: 'January - final estimated payment',
         paragraphs: [
           'The January estimated payment is often the last opportunity to align cash flow with contribution funding for the prior tax year. Plans for the new year should be modeled before Q1 payroll cycles begin.',
         ],

@@ -37,7 +37,7 @@ export default function CalculatorPreviewCard() {
                 Potential Lifetime Tax Savings
               </p>
               <p className="font-body text-cream/50 text-sm leading-relaxed mt-6">
-                Based on a 45-year-old owner earning $500K — your numbers will be different. Use the
+                Based on a 45-year-old owner earning $500K - your numbers will be different. Use the
                 calculator to see yours.
               </p>
             </div>

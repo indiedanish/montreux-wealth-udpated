@@ -60,7 +60,7 @@ export default function CashBalanceCalculator({ onContinue }: CashBalanceCalcula
           <div className="space-y-6">
             <div>
               <label htmlFor="cb-age" className={labelClass}>
-                Your Age — {age}
+                Your Age - {age}
               </label>
               <input
                 id="cb-age"
@@ -180,7 +180,7 @@ export default function CashBalanceCalculator({ onContinue }: CashBalanceCalcula
 
             <div>
               <label htmlFor="cb-years" className={labelClass}>
-                Years to Retirement — {yearsToRetirement}
+                Years to Retirement - {yearsToRetirement}
               </label>
               <input
                 id="cb-years"
@@ -198,7 +198,7 @@ export default function CashBalanceCalculator({ onContinue }: CashBalanceCalcula
           </div>
         </div>
 
-        {/* Results — sticky on desktop for always-visible value */}
+        {/* Results - sticky on desktop for always-visible value */}
         <div className="p-6 md:p-10 bg-cream lg:sticky lg:top-24 lg:self-start">
           <p className="font-body text-xs tracking-widest uppercase text-gold mb-4">Your Estimate</p>
 

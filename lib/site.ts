@@ -32,7 +32,7 @@ export const CASH_BALANCE_FAQ = [
   {
     question: 'What is a Cash Balance Plan?',
     answer:
-      'A Cash Balance Plan is an IRS-approved defined benefit retirement plan that allows business owners to contribute based on actuarial retirement funding needs — often $150,000 to $300,000+ annually, far beyond standard 401(k) limits.',
+      'A Cash Balance Plan is an IRS-approved defined benefit retirement plan that allows business owners to contribute based on actuarial retirement funding needs - often $150,000 to $300,000+ annually, far beyond standard 401(k) limits.',
   },
   {
     question: 'How much can I contribute to a Cash Balance Plan?',

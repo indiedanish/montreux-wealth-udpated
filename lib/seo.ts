@@ -38,19 +38,19 @@ export const PAGE_SEO = {
   home: {
     title: SITE_NAME,
     description:
-      'CFA & CPA-led integrated wealth management in New York — investment management, financial planning, and tax services under one roof.',
+      'CFA & CPA-led integrated wealth management in New York - investment management, financial planning, and tax services under one roof.',
     path: '/',
   },
   investmentManagement: {
     title: 'Investment Management',
     description:
-      'Custom investment portfolios across equities, fixed income, alternatives, and private markets — managed with discipline across every market environment.',
+      'Custom investment portfolios across equities, fixed income, alternatives, and private markets - managed with discipline across every market environment.',
     path: '/investment-management',
   },
   financialPlanning: {
     title: 'Financial Planning',
     description:
-      'Comprehensive financial planning — retirement, estate, succession, insurance, and multi-generational wealth transfer coordinated with your investments and taxes.',
+      'Comprehensive financial planning - retirement, estate, succession, insurance, and multi-generational wealth transfer coordinated with your investments and taxes.',
     path: '/financial-planning',
   },
   accountingTax: {
@@ -88,7 +88,7 @@ export const PAGE_SEO = {
     path: '/privacy-policy',
   },
   insights: {
-    title: 'Insights — Wealth & Tax Guides',
+    title: 'Insights - Wealth & Tax Guides',
     description:
       'Educational articles on Cash Balance Plans, integrated wealth management, and tax strategy for business owners and high-net-worth families in New York.',
     path: '/insights',

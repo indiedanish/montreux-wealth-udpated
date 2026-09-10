@@ -16,7 +16,7 @@ export const taxPlanningPosts: InsightPost[] = [
       {
         heading: 'Why K-1s complicate planning',
         paragraphs: [
-          'Schedule K-1 income may include ordinary business income, capital gains, dividends, and Section 179 deductions — often arriving late in tax season. Without projections, owners underpay estimated taxes or miss deduction timing opportunities.',
+          'Schedule K-1 income may include ordinary business income, capital gains, dividends, and Section 179 deductions - often arriving late in tax season. Without projections, owners underpay estimated taxes or miss deduction timing opportunities.',
         ],
       },
       {
@@ -36,13 +36,13 @@ export const taxPlanningPosts: InsightPost[] = [
     slug: 'estate-planning-high-net-worth-new-york',
     title: 'Estate Planning for High-Net-Worth Families in New York',
     description:
-      'Estate planning considerations for affluent New York families — federal and state exposure, trusts, and coordination with investment portfolios.',
+      'Estate planning considerations for affluent New York families - federal and state exposure, trusts, and coordination with investment portfolios.',
     category: 'tax-planning',
     publishedAt: '2026-06-08',
     updatedAt: '2026-09-10',
     readTimeMinutes: 6,
     directAnswer:
-      'High-net-worth New York families should coordinate estate plans with federal estate tax exemptions, New York estate tax rules, trust structures, beneficiary designations on accounts, and liquidity for estate tax payments — integrated with investment and charitable strategies.',
+      'High-net-worth New York families should coordinate estate plans with federal estate tax exemptions, New York estate tax rules, trust structures, beneficiary designations on accounts, and liquidity for estate tax payments - integrated with investment and charitable strategies.',
     sections: [
       {
         heading: 'Beyond documents',
@@ -53,7 +53,7 @@ export const taxPlanningPosts: InsightPost[] = [
       {
         heading: 'Multi-generational coordination',
         paragraphs: [
-          'Financial planning at Montreux includes succession, philanthropic strategy, and wealth transfer — developed with your legal counsel and updated as family and tax law evolve.',
+          'Financial planning at Montreux includes succession, philanthropic strategy, and wealth transfer - developed with your legal counsel and updated as family and tax law evolve.',
         ],
       },
     ],
@@ -72,7 +72,7 @@ export const taxPlanningPosts: InsightPost[] = [
     updatedAt: '2026-09-10',
     readTimeMinutes: 5,
     directAnswer:
-      'Defined contribution plans (401(k), SEP, profit sharing) cap contributions at IRS limits per participant. Defined benefit plans (including Cash Balance Plans) use actuarial formulas that can allow much larger tax-deductible employer contributions for eligible owners — often combined with a 401(k) rather than used alone.',
+      'Defined contribution plans (401(k), SEP, profit sharing) cap contributions at IRS limits per participant. Defined benefit plans (including Cash Balance Plans) use actuarial formulas that can allow much larger tax-deductible employer contributions for eligible owners - often combined with a 401(k) rather than used alone.',
     sections: [
       {
         heading: 'Defined contribution overview',
@@ -83,7 +83,7 @@ export const taxPlanningPosts: InsightPost[] = [
       {
         heading: 'Defined benefit overview',
         paragraphs: [
-          'Cash Balance Plans commit the employer to fund actuarially determined benefits. They require actuaries, annual funding, and longer-term commitment — but can transform tax and retirement outcomes for the right business.',
+          'Cash Balance Plans commit the employer to fund actuarially determined benefits. They require actuaries, annual funding, and longer-term commitment - but can transform tax and retirement outcomes for the right business.',
         ],
       },
       {

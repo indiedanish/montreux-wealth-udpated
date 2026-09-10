@@ -27,7 +27,7 @@ const tabs: Tab[] = [
       {
         name: 'Fixed Income',
         description:
-          'Customized bond ladders across Treasury, municipal, and corporate bonds — structured around your specific risk tolerance, liquidity requirements, and maturity profile. Precision-built for stability and predictable cash flow.',
+          'Customized bond ladders across Treasury, municipal, and corporate bonds - structured around your specific risk tolerance, liquidity requirements, and maturity profile. Precision-built for stability and predictable cash flow.',
       },
       {
         name: 'Strategic Income',
@@ -37,7 +37,7 @@ const tabs: Tab[] = [
       {
         name: 'Real Estate Income',
         description:
-          'Direct property investments, REITs, and private real estate funds targeting income generation and inflation-resistant capital growth — with low correlation to traditional equity and fixed income markets.',
+          'Direct property investments, REITs, and private real estate funds targeting income generation and inflation-resistant capital growth - with low correlation to traditional equity and fixed income markets.',
       },
       {
         name: 'Alternative Income',
@@ -71,7 +71,7 @@ const tabs: Tab[] = [
       {
         name: 'Montreux Core Satellite',
         description:
-          'Broad passive exposure to global stock and bond market indices serves as the portfolio core, supplemented by active selection of specific sectors, individual securities, and alternative assets — including Bitcoin and gold — where conviction is high and opportunity is clear.',
+          'Broad passive exposure to global stock and bond market indices serves as the portfolio core, supplemented by active selection of specific sectors, individual securities, and alternative assets - including Bitcoin and gold - where conviction is high and opportunity is clear.',
       },
       {
         name: 'Montreux ETF Portfolios',
@@ -88,7 +88,7 @@ const tabs: Tab[] = [
       {
         name: 'Private Real Estate',
         description:
-          'Private funds, direct property investments, 1031 exchange programs, and other real estate opportunities offering compelling tax efficiency alongside strong investment returns — with returns structurally resistant to inflation.',
+          'Private funds, direct property investments, 1031 exchange programs, and other real estate opportunities offering compelling tax efficiency alongside strong investment returns - with returns structurally resistant to inflation.',
       },
       {
         name: 'Private Equity',
@@ -98,7 +98,7 @@ const tabs: Tab[] = [
       {
         name: 'Hedge Funds',
         description:
-          'Curated access to long/short equity, global macro, convertible bond arbitrage, managed futures, and other strategies with demonstrated, sustainable outperformance — selected through rigorous due diligence.',
+          'Curated access to long/short equity, global macro, convertible bond arbitrage, managed futures, and other strategies with demonstrated, sustainable outperformance - selected through rigorous due diligence.',
       },
       {
         name: 'Venture Capital',
@@ -266,8 +266,8 @@ export default function InvestmentManagementPage() {
           </p>
           <p className="font-body font-light text-cream/50 text-base max-w-2xl mt-4 leading-relaxed">
             <strong className="text-cream/70 font-normal">Investment management</strong> is the
-            professional oversight of your portfolio — including asset allocation, security selection,
-            rebalancing, and risk management — aligned to your specific financial goals.
+            professional oversight of your portfolio - including asset allocation, security selection,
+            rebalancing, and risk management - aligned to your specific financial goals.
           </p>
         </div>
 
@@ -286,8 +286,8 @@ export default function InvestmentManagementPage() {
 
           <p className="font-body text-text-muted text-base leading-relaxed mt-8">
             Effective investment management is not about chasing returns. It is about constructing a
-            portfolio that serves your specific purpose — generating income, growing capital, preserving
-            wealth, or all three — and maintaining that portfolio with discipline and adaptability through
+            portfolio that serves your specific purpose - generating income, growing capital, preserving
+            wealth, or all three - and maintaining that portfolio with discipline and adaptability through
             every market environment.
           </p>
 
@@ -295,7 +295,7 @@ export default function InvestmentManagementPage() {
             At Montreux, our investment team provides access to the full spectrum of institutional and
             individual investment opportunities. We design portfolios that reflect your unique
             circumstances, goals, and risk tolerance, then manage them actively as both your life and the
-            markets evolve. Every recommendation is customized — we do not use model portfolios applied
+            markets evolve. Every recommendation is customized - we do not use model portfolios applied
             uniformly across clients.
           </p>
         </div>

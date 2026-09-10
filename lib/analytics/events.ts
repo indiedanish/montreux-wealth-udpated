@@ -1,4 +1,4 @@
-/** PostHog event names — keep in sync with your PostHog project action definitions. */
+/** PostHog event names - keep in sync with your PostHog project action definitions. */
 export const ANALYTICS_EVENTS = {
   /** User clicked a primary or secondary CTA */
   CTA_CLICKED: 'cta_clicked',

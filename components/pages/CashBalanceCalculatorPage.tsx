@@ -81,7 +81,7 @@ export default function CashBalanceCalculatorPage() {
 
   return (
     <main className="bg-cream min-h-screen">
-      {/* Compact header — stays visible, minimal scroll for ad traffic */}
+      {/* Compact header - stays visible, minimal scroll for ad traffic */}
       <section className="bg-navy pt-24 pb-8 md:pb-10">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <StepIndicator step={step} />
@@ -91,7 +91,7 @@ export default function CashBalanceCalculatorPage() {
                 How Much Could You <span className="text-gold">Save in Taxes?</span>
               </h1>
               <p className="font-body text-cream/60 text-sm md:text-base mt-4 max-w-xl mx-auto">
-                Adjust the sliders — takes 60 seconds. Then book a free review with our team.
+                Adjust the sliders - takes 60 seconds. Then book a free review with our team.
               </p>
             </>
           ) : (
@@ -107,7 +107,7 @@ export default function CashBalanceCalculatorPage() {
         </div>
       </section>
 
-      {/* Step 1 — Calculator */}
+      {/* Step 1 - Calculator */}
       {step === 1 && (
         <section className="py-8 md:py-12">
           <div className="max-w-6xl mx-auto px-4 md:px-6">
@@ -116,11 +116,11 @@ export default function CashBalanceCalculatorPage() {
         </section>
       )}
 
-      {/* Step 2 — Results recap + Calendly */}
+      {/* Step 2 - Results recap + Calendly */}
       {step === 2 && results && (
         <section ref={bookingRef} className="py-8 md:py-12">
           <div className="max-w-3xl mx-auto px-4 md:px-6">
-            {/* Personalized recap — reinforces value before booking */}
+            {/* Personalized recap - reinforces value before booking */}
             <div className="bg-navy p-6 md:p-8 mb-6 text-center">
               <p className="font-body text-xs tracking-widest uppercase text-gold/70">
                 Based on your inputs

@@ -20,7 +20,7 @@ const cards = [
     to: '/financial-planning',
     title: 'Financial Planning',
     tagline: 'Your entire financial life, mapped and coordinated.',
-    body: 'From retirement and estate planning to philanthropic strategy, insurance, and multi-generational wealth transfer, our advisors build a comprehensive plan that reflects who you are and what matters to you — and evolves as your life does.',
+    body: 'From retirement and estate planning to philanthropic strategy, insurance, and multi-generational wealth transfer, our advisors build a comprehensive plan that reflects who you are and what matters to you - and evolves as your life does.',
     icon: (
       <svg viewBox="0 0 40 40" fill="none" className="w-10 h-10" strokeWidth={1.5}>
         <circle cx="20" cy="20" r="16" stroke="#C9A84C" />
@@ -80,7 +80,7 @@ export default function Services() {
   return (
     <section className="bg-cream py-32">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        {/* Header block — animates in as one unit */}
+        {/* Header block - animates in as one unit */}
         <div ref={headerRef} className="scroll-reveal text-center">
           <div className="flex items-center gap-4 justify-center mb-6">
             <div className="w-12 h-px bg-gold" />
@@ -95,14 +95,14 @@ export default function Services() {
           </h2>
 
           <p className="font-body font-light text-text-muted text-base leading-relaxed max-w-2xl mx-auto mt-6">
-            Most firms manage a piece of your finances. Montreux manages the whole. Our three disciplines —
-            investment management, financial planning, and accounting & tax — operate as a single, coordinated
+            Most firms manage a piece of your finances. Montreux manages the whole. Our three disciplines -
+            investment management, financial planning, and accounting & tax - operate as a single, coordinated
             strategy. The result is a financial life with no blind spots, no gaps, and no inefficiencies hiding
             in the space between advisors.
           </p>
         </div>
 
-        {/* Cards — each animates in with a staggered delay */}
+        {/* Cards - each animates in with a staggered delay */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
           {cards.map((card, i) => (
             <div

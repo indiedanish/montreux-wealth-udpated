@@ -268,7 +268,7 @@ export default function ClientPortalPage() {
                   />
                 </div>
                 <p className="font-body text-xs text-cream/20 italic tracking-wide mt-8">
-                  Your plan is a living document — updated continuously alongside your life.
+                  Your plan is a living document - updated continuously alongside your life.
                 </p>
               </div>
               <div className="hidden md:flex items-center justify-center w-32 select-none pointer-events-none" aria-hidden="true">
@@ -304,7 +304,7 @@ export default function ClientPortalPage() {
                 </h2>
                 <p className="font-body text-cream/50 text-sm leading-relaxed mt-4 max-w-lg">
                   Securely upload tax documents, review filed returns, access your accounting records,
-                  manage payroll, and communicate with your Montreux tax and accounting team — all in one
+                  manage payroll, and communicate with your Montreux tax and accounting team - all in one
                   place.
                 </p>
                 <div className="w-12 h-px bg-gold opacity-30 my-8" />

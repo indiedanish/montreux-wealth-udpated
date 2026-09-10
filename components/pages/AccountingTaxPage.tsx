@@ -8,22 +8,22 @@ const services = [
   {
     name: 'Tax Preparation & Review',
     description:
-      'Individual, trust, estate, and entity tax returns prepared with precision — and reviewed against your broader financial strategy to ensure no opportunity for efficiency is overlooked.',
+      'Individual, trust, estate, and entity tax returns prepared with precision - and reviewed against your broader financial strategy to ensure no opportunity for efficiency is overlooked.',
   },
   {
     name: 'K-1 Preparation',
     description:
-      'Timely, accurate K-1 preparation for partnerships, S-corporations, and other pass-through entities — coordinated across multiple holdings and tax years without disruption.',
+      'Timely, accurate K-1 preparation for partnerships, S-corporations, and other pass-through entities - coordinated across multiple holdings and tax years without disruption.',
   },
   {
     name: 'Tax Compliance Advisory',
     description:
-      'Ongoing guidance on federal, state, and local compliance obligations — including estimated tax payments, extensions, amended returns, and multi-state filing requirements.',
+      'Ongoing guidance on federal, state, and local compliance obligations - including estimated tax payments, extensions, amended returns, and multi-state filing requirements.',
   },
   {
     name: 'Proactive Tax Planning',
     description:
-      'Year-round tax strategy that anticipates liability before it crystallizes — through harvesting, timing, entity structuring, and coordinated decision-making across your entire financial picture.',
+      'Year-round tax strategy that anticipates liability before it crystallizes - through harvesting, timing, entity structuring, and coordinated decision-making across your entire financial picture.',
   },
   {
     name: 'Bill Pay & Cash Management',
@@ -33,22 +33,22 @@ const services = [
   {
     name: 'Cash Projection & Liquidity Planning',
     description:
-      'Forward-looking liquidity analysis to ensure the right capital is in the right place at the right time — across accounts, entities, and time horizons.',
+      'Forward-looking liquidity analysis to ensure the right capital is in the right place at the right time - across accounts, entities, and time horizons.',
   },
   {
     name: 'Partnership Accounting',
     description:
-      'Full accounting services for investment partnerships, family LLCs, holding companies, and other entity structures — maintained with the rigor they require.',
+      'Full accounting services for investment partnerships, family LLCs, holding companies, and other entity structures - maintained with the rigor they require.',
   },
   {
     name: 'Business Advisory Services',
     description:
-      'CFO-level guidance for privately held businesses — spanning financial reporting, capital structure analysis, strategic planning, and operational financial management.',
+      'CFO-level guidance for privately held businesses - spanning financial reporting, capital structure analysis, strategic planning, and operational financial management.',
   },
   {
     name: 'Bookkeeping & Back-Office',
     description:
-      'Complete bookkeeping, financial statement preparation, reconciliation, and administrative accounting support — managed so you never have to think about it.',
+      'Complete bookkeeping, financial statement preparation, reconciliation, and administrative accounting support - managed so you never have to think about it.',
     wide: true,
   },
 ];
@@ -119,7 +119,7 @@ export default function AccountingTaxPage() {
           <p className="font-body font-light text-cream/50 text-base max-w-2xl mt-4 leading-relaxed">
             <strong className="text-cream/70 font-normal">Integrated tax and accounting</strong>{' '}
             coordinates preparation, compliance, and proactive planning with your investments and financial
-            plan — so every decision accounts for its tax consequence before it is made.
+            plan - so every decision accounts for its tax consequence before it is made.
           </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gold/20" />
@@ -134,11 +134,11 @@ export default function AccountingTaxPage() {
             It Is a Continuous Discipline.
           </h2>
           <p className="font-body text-text-muted text-base leading-relaxed mt-8">
-            At most firms, tax strategy happens in isolation — an accountant files your return in April,
+            At most firms, tax strategy happens in isolation - an accountant files your return in April,
             unaware of the investment decisions made in November. At Montreux, that disconnect does not
             exist. Our accounting and tax professionals work in direct coordination with your investment and
             planning advisors throughout the year, ensuring that every financial decision accounts for its
-            tax consequence before it is made — not after.
+            tax consequence before it is made - not after.
           </p>
           <p className="font-body text-text-muted text-base leading-relaxed mt-6">
             The result is a tax position that is structurally optimized, not reactively managed. We
@@ -172,10 +172,10 @@ export default function AccountingTaxPage() {
           <div>
             <blockquote className="font-heading font-light text-2xl md:text-3xl text-cream italic leading-relaxed">
               "When your tax advisor and your investment advisor share the same information in real time,
-              the savings are not incidental — they are structural."
+              the savings are not incidental - they are structural."
             </blockquote>
             <p className="font-body text-gold text-xs tracking-widest uppercase mt-6">
-              — The Montreux Approach
+              - The Montreux Approach
             </p>
           </div>
         </div>
@@ -239,14 +239,14 @@ export default function AccountingTaxPage() {
                 Disconnected Advisors.
               </h2>
               <p className="font-body text-text-muted text-sm leading-relaxed mt-8">
-                Most high-net-worth individuals work with a patchwork of professionals — an investment firm
+                Most high-net-worth individuals work with a patchwork of professionals - an investment firm
                 here, a CPA there, perhaps a financial planner who checks in annually. Each professional is
                 competent in isolation. But the gaps between them are where value quietly disappears.
               </p>
               <p className="font-body text-text-muted text-sm leading-relaxed mt-5">
                 Investment gains realized without tax coordination. Charitable gifts structured
                 inefficiently. Estate plans that contradict portfolio titling. Retirement distributions
-                timed without regard to marginal tax brackets. These are not hypothetical errors — they are
+                timed without regard to marginal tax brackets. These are not hypothetical errors - they are
                 the predictable result of advisors who do not share information.
               </p>
               <p className="font-body text-text-muted text-sm leading-relaxed mt-5">

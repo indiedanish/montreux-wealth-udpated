@@ -1,6 +1,6 @@
 # Montreux Wealth Management
 
-Next.js marketing site for Montreux Wealth Management — integrated investment management, financial planning, and tax services.
+Next.js marketing site for Montreux Wealth Management - integrated investment management, financial planning, and tax services.
 
 ## Stack
 
@@ -24,7 +24,7 @@ npm run build
 npm start
 ```
 
-Deploy to Vercel — Next.js is detected automatically. No custom rewrites needed.
+Deploy to Vercel - Next.js is detected automatically. No custom rewrites needed.
 
 ## SEO
 

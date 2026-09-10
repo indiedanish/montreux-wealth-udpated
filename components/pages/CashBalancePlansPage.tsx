@@ -11,7 +11,7 @@ const benefits = [
   {
     title: 'Deduct 3–5× More Than a 401(k) Alone',
     description:
-      'Cash Balance Plans allow contributions well beyond the $70,000 combined 401(k) limit — often $150,000 to $300,000+ annually for business owners in their peak earning years.',
+      'Cash Balance Plans allow contributions well beyond the $70,000 combined 401(k) limit - often $150,000 to $300,000+ annually for business owners in their peak earning years.',
   },
   {
     title: 'Immediate Tax Reduction',
@@ -21,7 +21,7 @@ const benefits = [
   {
     title: 'ERISA Creditor Protection',
     description:
-      'Assets inside a qualified Cash Balance Plan are federally protected from judgments, malpractice awards, and — in most cases — bankruptcy.',
+      'Assets inside a qualified Cash Balance Plan are federally protected from judgments, malpractice awards, and - in most cases - bankruptcy.',
   },
   {
     title: 'Flexible Contribution Design',
@@ -31,7 +31,7 @@ const benefits = [
   {
     title: 'Integrated with Your Broader Strategy',
     description:
-      'At Montreux, your Cash Balance Plan is designed in coordination with your investment portfolio, tax planning, and succession goals — not in isolation.',
+      'At Montreux, your Cash Balance Plan is designed in coordination with your investment portfolio, tax planning, and succession goals - not in isolation.',
   },
   {
     title: 'Works Alongside Your CPA',
@@ -44,7 +44,7 @@ const steps = [
   {
     num: '01',
     title: 'Complimentary Feasibility Review',
-    body: 'We analyze your income, age, employee census, and goals to determine whether a Cash Balance Plan is appropriate — at no cost and with no obligation.',
+    body: 'We analyze your income, age, employee census, and goals to determine whether a Cash Balance Plan is appropriate - at no cost and with no obligation.',
   },
   {
     num: '02',
@@ -54,7 +54,7 @@ const steps = [
   {
     num: '03',
     title: 'Ongoing Administration & Coordination',
-    body: 'We handle setup, compliance, annual filings, and investment coordination — integrated with your broader Montreux wealth management relationship.',
+    body: 'We handle setup, compliance, annual filings, and investment coordination - integrated with your broader Montreux wealth management relationship.',
   },
 ];
 
@@ -73,10 +73,10 @@ const notFit = [
 ];
 
 const taxDeadlines = [
-  { date: 'April 15', message: 'Q1 estimated tax due — start modeling your plan design now' },
+  { date: 'April 15', message: 'Q1 estimated tax due - start modeling your plan design now' },
   { date: 'June 15', message: 'Review payroll and compensation strategy before Q2 payment' },
-  { date: 'September 15', message: 'Highest planning leverage — contribution ranges should be set' },
-  { date: 'January 15', message: 'Final estimated payment — last window to optimize for the current tax year' },
+  { date: 'September 15', message: 'Highest planning leverage - contribution ranges should be set' },
+  { date: 'January 15', message: 'Final estimated payment - last window to optimize for the current tax year' },
 ];
 
 const caseStudies = [
@@ -136,13 +136,13 @@ export default function CashBalancePlansPage() {
           </h1>
           <p className="font-body font-light text-cream/70 text-lg md:text-xl max-w-3xl mt-8 leading-relaxed">
             For high-income business owners, a Cash Balance Plan may allow you to deduct significantly more
-            than a 401(k) alone — potentially saving six figures in taxes while building retirement assets
+            than a 401(k) alone - potentially saving six figures in taxes while building retirement assets
             that compound for decades.
           </p>
           <p className="font-body font-light text-cream/50 text-base max-w-3xl mt-4 leading-relaxed">
             <strong className="text-cream/70 font-normal">A Cash Balance Plan</strong> is an IRS-approved
             defined benefit retirement plan that lets business owners contribute based on actuarial funding
-            needs — not a percentage of salary — often well beyond standard 401(k) limits.
+            needs - not a percentage of salary - often well beyond standard 401(k) limits.
           </p>
           <div className="flex flex-col items-center gap-5 mt-12 w-full max-w-lg mx-auto">
             <Link
@@ -188,11 +188,11 @@ export default function CashBalancePlansPage() {
           <p className="font-body text-text-muted text-base leading-relaxed mt-8">
             Most advisors stop at the 401(k). For business owners earning $300,000, $500,000, or more, that
             cap shelters less than a third of what's available through advanced plan design. The difference
-            isn't incremental — it's structural.
+            isn't incremental - it's structural.
           </p>
           <p className="font-body text-text-muted text-base leading-relaxed mt-6">
             A Cash Balance Plan is an IRS-approved defined benefit plan that lets you contribute based on
-            what an enrolled actuary determines is needed to fund your retirement — not a percentage of
+            what an enrolled actuary determines is needed to fund your retirement - not a percentage of
             salary. Combined with a 401(k), it creates one of the most powerful tax and retirement tools
             available to business owners.
           </p>
@@ -225,7 +225,7 @@ export default function CashBalancePlansPage() {
             </h2>
             <p className="font-body text-text-muted text-sm mt-4 max-w-2xl mx-auto leading-relaxed">
               Plan design decisions made before each estimated tax payment can meaningfully reduce what you
-              owe — and accelerate what you keep.
+              owe - and accelerate what you keep.
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -265,7 +265,7 @@ export default function CashBalancePlansPage() {
             <div className="w-12 h-px bg-gold" />
           </div>
           <h2 className="font-heading font-light text-3xl md:text-4xl text-navy text-center leading-snug mt-4">
-            A Powerful Tool — When Designed Correctly
+            A Powerful Tool - When Designed Correctly
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
             {benefits.map((item) => (
@@ -307,7 +307,7 @@ export default function CashBalancePlansPage() {
               <ul className="space-y-4">
                 {goodFit.map((item) => (
                   <li key={item} className="flex gap-3 font-body text-text-muted text-sm leading-relaxed">
-                    <span className="text-gold mt-1 flex-shrink-0">—</span>
+                    <span className="text-gold mt-1 flex-shrink-0">-</span>
                     {item}
                   </li>
                 ))}
@@ -326,7 +326,7 @@ export default function CashBalancePlansPage() {
               <ul className="space-y-4">
                 {notFit.map((item) => (
                   <li key={item} className="flex gap-3 font-body text-cream/70 text-sm leading-relaxed">
-                    <span className="text-gold/60 mt-1 flex-shrink-0">—</span>
+                    <span className="text-gold/60 mt-1 flex-shrink-0">-</span>
                     {item}
                   </li>
                 ))}
@@ -403,13 +403,13 @@ export default function CashBalancePlansPage() {
                 Integrated Wealth Management Is the Goal.
               </h2>
               <p className="font-body text-text-muted text-base leading-relaxed mt-8">
-                Montreux is not a plan administrator — we are a full-service wealth management firm. Your
+                Montreux is not a plan administrator - we are a full-service wealth management firm. Your
                 Cash Balance Plan is designed and coordinated within a broader relationship that encompasses
                 investment management, financial planning, tax strategy, and estate planning.
               </p>
               <p className="font-body text-text-muted text-base leading-relaxed mt-6">
                 When your retirement plan, portfolio, and tax strategy share the same advisors at the same
-                table, the savings are not incidental — they are structural.
+                table, the savings are not incidental - they are structural.
               </p>
               <div className="flex flex-wrap gap-4 mt-10">
                 <TrackedLink
@@ -438,11 +438,11 @@ export default function CashBalancePlansPage() {
             <div className="bg-cream p-12">
               <blockquote className="font-heading font-light text-2xl text-navy italic leading-relaxed">
                 "We used to save maybe $50,000 with a SEP. With a properly designed Cash Balance Plan
-                integrated into our broader strategy, we are now deducting over $200,000 a year — and our
+                integrated into our broader strategy, we are now deducting over $200,000 a year - and our
                 retirement trajectory has completely changed."
               </blockquote>
               <p className="font-body text-gold text-xs tracking-widest uppercase mt-6">
-                — Managing Partner, Professional Services Firm
+                - Managing Partner, Professional Services Firm
               </p>
             </div>
           </div>
@@ -456,7 +456,7 @@ export default function CashBalancePlansPage() {
             Already Have a Tax Advisor? Perfect.
           </h2>
           <p className="font-body text-text-muted text-base leading-relaxed mt-8">
-            We do not replace your CPA — we complement them. Montreux handles plan design, actuarial
+            We do not replace your CPA - we complement them. Montreux handles plan design, actuarial
             coordination, and investment management while your tax advisor maintains oversight of your
             overall tax strategy. No turf wars. No disruption. Just a smarter, aligned approach.
           </p>
@@ -469,7 +469,7 @@ export default function CashBalancePlansPage() {
         </div>
       </section>
 
-      {/* FAQ — structured for SEO & AEO */}
+      {/* FAQ - structured for SEO & AEO */}
       <FaqSection items={CASH_BALANCE_FAQ} />
 
       {/* Insights cross-link */}

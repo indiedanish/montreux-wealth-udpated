@@ -8,17 +8,17 @@ const philosophy = [
   {
     num: '01',
     title: 'Comprehensive',
-    body: 'We examine every dimension of your financial life — not just your investments, but your taxes, your estate, your insurance, your cash flow, and your legacy.',
+    body: 'We examine every dimension of your financial life - not just your investments, but your taxes, your estate, your insurance, your cash flow, and your legacy.',
   },
   {
     num: '02',
     title: 'Collaborative',
-    body: 'Your plan is built with you, not handed to you. We listen first, then advise — and we revisit the plan together regularly to ensure it remains aligned with your life.',
+    body: 'Your plan is built with you, not handed to you. We listen first, then advise - and we revisit the plan together regularly to ensure it remains aligned with your life.',
   },
   {
     num: '03',
     title: 'Continuous',
-    body: 'A plan written once and filed away is not a plan — it is a document. Ours is a living strategy, updated as your family grows, your goals shift, and the world changes around you.',
+    body: 'A plan written once and filed away is not a plan - it is a document. Ours is a living strategy, updated as your family grows, your goals shift, and the world changes around you.',
   },
 ];
 
@@ -37,7 +37,7 @@ const services = [
   {
     name: 'Trusts & Estate Planning',
     description:
-      'Trust structures, will coordination, beneficiary strategy, and estate administration planning — developed in close collaboration with your legal counsel for a seamless, unified approach.',
+      'Trust structures, will coordination, beneficiary strategy, and estate administration planning - developed in close collaboration with your legal counsel for a seamless, unified approach.',
     icon: (
       <svg viewBox="0 0 32 32" fill="none" className="w-8 h-8" strokeWidth={1.5}>
         <rect x="5" y="4" width="18" height="24" rx="1" stroke="#C9A84C" />
@@ -52,7 +52,7 @@ const services = [
   {
     name: 'Cash Flow & Retirement Planning',
     description:
-      'Detailed projections of income, expenses, and retirement readiness — with scenario analysis across different life paths, retirement dates, and spending levels.',
+      'Detailed projections of income, expenses, and retirement readiness - with scenario analysis across different life paths, retirement dates, and spending levels.',
     icon: (
       <svg viewBox="0 0 32 32" fill="none" className="w-8 h-8" strokeWidth={1.5}>
         <line x1="4" y1="16" x2="28" y2="16" stroke="#C9A84C" strokeLinecap="round" />
@@ -83,7 +83,7 @@ const services = [
   {
     name: 'Philanthropic & Impact Advisory',
     description:
-      'Donor-advised funds, private foundations, charitable remainder trusts, and values-aligned giving strategies — designed to maximize your impact alongside your tax efficiency.',
+      'Donor-advised funds, private foundations, charitable remainder trusts, and values-aligned giving strategies - designed to maximize your impact alongside your tax efficiency.',
     icon: (
       <svg viewBox="0 0 32 32" fill="none" className="w-8 h-8" strokeWidth={1.5}>
         <path
@@ -97,7 +97,7 @@ const services = [
   {
     name: 'Insurance Planning',
     description:
-      'Life, disability, long-term care, and liability coverage analysis — ensuring your financial plan is protected against the unexpected events that no projection can anticipate.',
+      'Life, disability, long-term care, and liability coverage analysis - ensuring your financial plan is protected against the unexpected events that no projection can anticipate.',
     icon: (
       <svg viewBox="0 0 32 32" fill="none" className="w-8 h-8" strokeWidth={1.5}>
         <path
@@ -112,7 +112,7 @@ const services = [
   {
     name: 'Concierge Financial Services',
     description:
-      'Bill pay, household cash management, vendor coordination, and the full range of financial administration — for clients who prefer to delegate the details and focus on their lives.',
+      'Bill pay, household cash management, vendor coordination, and the full range of financial administration - for clients who prefer to delegate the details and focus on their lives.',
     icon: (
       <svg viewBox="0 0 32 32" fill="none" className="w-8 h-8" strokeWidth={1.5}>
         <path d="M6 27 L6 22 C6 19.8 7.8 18 10 18 L22 18 C24.2 18 26 19.8 26 22 L26 27" stroke="#C9A84C" strokeLinecap="round" />
@@ -125,7 +125,7 @@ const services = [
   {
     name: 'Elder Care Planning',
     description:
-      'Proactive financial planning for the costs and complexities of aging — for you or for the family members in your care. Thoughtfully integrated into your broader financial strategy.',
+      'Proactive financial planning for the costs and complexities of aging - for you or for the family members in your care. Thoughtfully integrated into your broader financial strategy.',
     icon: (
       <svg viewBox="0 0 32 32" fill="none" className="w-8 h-8" strokeWidth={1.5}>
         <circle cx="16" cy="10" r="5" stroke="#C9A84C" />
@@ -137,7 +137,7 @@ const services = [
   {
     name: 'Special Needs Planning',
     description:
-      'Specialized trust structures, government benefit coordination, and long-term care strategies for family members with disabilities or special circumstances — handled with expertise and sensitivity.',
+      'Specialized trust structures, government benefit coordination, and long-term care strategies for family members with disabilities or special circumstances - handled with expertise and sensitivity.',
     icon: (
       <svg viewBox="0 0 32 32" fill="none" className="w-8 h-8" strokeWidth={1.5}>
         <polygon
@@ -161,19 +161,19 @@ const steps = [
     num: '02',
     title: 'Analysis',
     description:
-      'We examine your complete financial picture — assets, liabilities, income, tax position, insurance, estate documents, and existing plans — before making a single recommendation.',
+      'We examine your complete financial picture - assets, liabilities, income, tax position, insurance, estate documents, and existing plans - before making a single recommendation.',
   },
   {
     num: '03',
     title: 'Strategy',
     description:
-      'We build a comprehensive, integrated plan that coordinates across investment, tax, and planning disciplines — tailored precisely to your circumstances and goals.',
+      'We build a comprehensive, integrated plan that coordinates across investment, tax, and planning disciplines - tailored precisely to your circumstances and goals.',
   },
   {
     num: '04',
     title: 'Partnership',
     description:
-      'We implement, monitor, and adapt the plan alongside you — through market cycles, life events, and generational transitions. This is an ongoing relationship, not a one-time deliverable.',
+      'We implement, monitor, and adapt the plan alongside you - through market cycles, life events, and generational transitions. This is an ongoing relationship, not a one-time deliverable.',
   },
 ];
 
@@ -221,7 +221,7 @@ export default function FinancialPlanningPage() {
           </p>
           <p className="font-body font-light text-cream/50 text-base max-w-2xl mt-4 leading-relaxed">
             <strong className="text-cream/70 font-normal">Financial planning</strong> is a living
-            strategy that coordinates retirement, estate, insurance, cash flow, and legacy goals — updated
+            strategy that coordinates retirement, estate, insurance, cash flow, and legacy goals - updated
             as your life and the world around you change.
           </p>
         </div>
@@ -232,19 +232,19 @@ export default function FinancialPlanningPage() {
       <section className="bg-cream py-24">
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="font-heading font-light text-3xl text-navy text-center leading-snug">
-            A Plan That Reflects Who You Are —
+            A Plan That Reflects Who You Are -
             <br />
             Not Just What You Own.
           </h2>
           <p className="font-body text-text-muted text-base leading-relaxed mt-8">
-            A financial plan is not a document. It is a living framework — built around your values, your
-            goals, and the people who depend on you — that guides every significant financial decision you
+            A financial plan is not a document. It is a living framework - built around your values, your
+            goals, and the people who depend on you - that guides every significant financial decision you
             make. At Montreux, we treat financial planning as the connective tissue of your entire
             financial life.
           </p>
           <p className="font-body text-text-muted text-base leading-relaxed mt-6">
             Our advisors work closely with you and your family to develop a strategy that addresses every
-            dimension of your financial picture — from retirement and estate planning to philanthropic
+            dimension of your financial picture - from retirement and estate planning to philanthropic
             giving, insurance, and multi-generational wealth transfer. This is a collaborative, ongoing
             process, not a one-time engagement. As your circumstances evolve, your plan evolves with them.
           </p>
@@ -324,7 +324,7 @@ export default function FinancialPlanningPage() {
           </h2>
 
           <div className="relative mt-16">
-            {/* Dashed connector — desktop only */}
+            {/* Dashed connector - desktop only */}
             <div
               className="hidden md:block absolute top-6 left-0 right-0 h-px"
               style={{

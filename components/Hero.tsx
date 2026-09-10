@@ -48,7 +48,7 @@ export default function Hero() {
         }}
       />
 
-      {/* SVG architectural lines — draw in on load then remain static */}
+      {/* SVG architectural lines - draw in on load then remain static */}
       <svg
         aria-hidden="true"
         className="absolute inset-0 w-full h-full pointer-events-none"
@@ -72,7 +72,7 @@ export default function Hero() {
         ))}
       </svg>
 
-      {/* Horizontal scan line — draws left-to-right once on load */}
+      {/* Horizontal scan line - draws left-to-right once on load */}
       <div
         aria-hidden="true"
         className="absolute left-0 right-0 h-px pointer-events-none animate-scan-line"
@@ -92,7 +92,7 @@ export default function Hero() {
           </span>
         </div>
 
-        {/* H1 — keyword-aligned for SEO while preserving brand voice */}
+        {/* H1 - keyword-aligned for SEO while preserving brand voice */}
         <h1 className="font-heading font-light text-5xl md:text-7xl leading-tight text-cream tracking-tight max-w-4xl">
           Integrated Wealth Management
           <br />
@@ -103,7 +103,7 @@ export default function Hero() {
 
         {/* Subheadline */}
         <p className="font-body font-light text-lg md:text-xl text-cream/70 max-w-2xl mt-8 leading-relaxed">
-          Where financial precision meets generational purpose — investments, planning, and taxation
+          Where financial precision meets generational purpose - investments, planning, and taxation
           coordinated under one roof to compound your advantage across every chapter of your life.
         </p>
 

@@ -5,18 +5,18 @@ export const integratedWealthPosts: InsightPost[] = [
     slug: 'what-is-integrated-wealth-management',
     title: 'What Is Integrated Wealth Management?',
     description:
-      'Integrated wealth management coordinates investments, financial planning, and tax strategy under one advisory relationship — reducing gaps and inefficiencies.',
+      'Integrated wealth management coordinates investments, financial planning, and tax strategy under one advisory relationship - reducing gaps and inefficiencies.',
     category: 'integrated-wealth',
     publishedAt: '2026-05-01',
     updatedAt: '2026-09-10',
     readTimeMinutes: 6,
     directAnswer:
-      'Integrated wealth management means your investments, financial plan, and tax strategy are designed and managed together by advisors who share the same view of your complete financial picture — rather than siloed across separate firms that rarely communicate.',
+      'Integrated wealth management means your investments, financial plan, and tax strategy are designed and managed together by advisors who share the same view of your complete financial picture - rather than siloed across separate firms that rarely communicate.',
     sections: [
       {
         heading: 'The problem with fragmented advice',
         paragraphs: [
-          'Many affluent households work with an investment manager, a CPA, and perhaps an estate attorney — but no one holds the full picture. Tax consequences of portfolio moves go unreviewed. Estate documents drift from actual holdings. Cash sits idle because no one owns liquidity planning end-to-end.',
+          'Many affluent households work with an investment manager, a CPA, and perhaps an estate attorney - but no one holds the full picture. Tax consequences of portfolio moves go unreviewed. Estate documents drift from actual holdings. Cash sits idle because no one owns liquidity planning end-to-end.',
           'The gaps between advisors are where inefficiencies hide.',
         ],
       },
@@ -24,7 +24,7 @@ export const integratedWealthPosts: InsightPost[] = [
         heading: 'What integration looks like in practice',
         paragraphs: [
           'At Montreux, CFA-led investment management, comprehensive financial planning, and CPA-led tax services operate as one coordinated strategy. Roth conversions, charitable giving, entity structure, and portfolio positioning are evaluated together.',
-          'The objective is not more products — it is fewer blind spots.',
+          'The objective is not more products - it is fewer blind spots.',
         ],
       },
       {
@@ -50,7 +50,7 @@ export const integratedWealthPosts: InsightPost[] = [
     updatedAt: '2026-09-10',
     readTimeMinutes: 5,
     directAnswer:
-      'New York adds state and city tax complexity, high living costs, and sophisticated client needs. A wealth manager led by professionals with CFA and CPA credentials can align portfolio decisions with federal, state, and local tax consequences — a combination less common at investment-only or tax-only firms.',
+      'New York adds state and city tax complexity, high living costs, and sophisticated client needs. A wealth manager led by professionals with CFA and CPA credentials can align portfolio decisions with federal, state, and local tax consequences - a combination less common at investment-only or tax-only firms.',
     sections: [
       {
         heading: 'New York-specific considerations',
@@ -80,7 +80,7 @@ export const integratedWealthPosts: InsightPost[] = [
     updatedAt: '2026-09-10',
     readTimeMinutes: 5,
     directAnswer:
-      'Your CPA and investment advisor should share information on income timing, capital gains, retirement plan contributions, entity structure, and estimated tax payments so portfolio moves and tax filings reflect the same strategy — not conflicting assumptions.',
+      'Your CPA and investment advisor should share information on income timing, capital gains, retirement plan contributions, entity structure, and estimated tax payments so portfolio moves and tax filings reflect the same strategy - not conflicting assumptions.',
     sections: [
       {
         heading: 'Common coordination failures',
@@ -92,7 +92,7 @@ export const integratedWealthPosts: InsightPost[] = [
         heading: 'What good coordination includes',
         paragraphs: [
           'Shared calendars for estimated tax dates, pre-year-end gain/loss harvesting aligned with bracket management, retirement plan adoption timed with payroll, and estate document reviews when beneficiary designations change on accounts.',
-          'Montreux works alongside your existing CPA when you prefer to keep them — we complement, not replace, your tax quarterback.',
+          'Montreux works alongside your existing CPA when you prefer to keep them - we complement, not replace, your tax quarterback.',
         ],
       },
     ],

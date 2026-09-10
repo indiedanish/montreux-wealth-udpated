@@ -4,7 +4,7 @@
 
 1. Create a project at [PostHog](https://posthog.com) (US or EU region).
 2. Copy your **Project API Key** (`phc_...`) from **Project Settings → Project API Key**.
-   - Do **not** use a Personal API key (`phx_...`) — that is for the REST API only and will not capture events.
+   - Do **not** use a Personal API key (`phx_...`) - that is for the REST API only and will not capture events.
 3. Add to `.env.local`:
 
 ```env
@@ -23,9 +23,9 @@ Analytics is disabled when `NEXT_PUBLIC_POSTHOG_KEY` is missing (safe for local 
 
 Enable in PostHog project settings:
 
-- **Web analytics** — pageviews, referrers, UTM campaigns
-- **Session replay** — especially for `/cash-balance-calculator` funnel
-- **Autocapture** — optional supplement to custom events below
+- **Web analytics** - pageviews, referrers, UTM campaigns
+- **Session replay** - especially for `/cash-balance-calculator` funnel
+- **Autocapture** - optional supplement to custom events below
 
 ## Event catalog
 
@@ -61,4 +61,4 @@ Every custom event includes automatic context: `page_path`, `page_category`, `fu
 
 ## Privacy note
 
-Consider adding a cookie consent banner before enabling full tracking — your privacy policy mentions cookies. PostHog supports opt-in via `opt_out_capturing_by_default` if needed.
+Consider adding a cookie consent banner before enabling full tracking - your privacy policy mentions cookies. PostHog supports opt-in via `opt_out_capturing_by_default` if needed.
