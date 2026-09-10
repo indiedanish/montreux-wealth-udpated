@@ -1,7 +1,9 @@
 'use client';
 
 import Link from 'next/link';
+import SiteImage from '@/components/SiteImage';
 import { useAnalytics } from '@/hooks/useAnalytics';
+import { SITE_IMAGES } from '@/lib/images';
 
 const highlights = [
   'Compare 401(k) only vs. 401(k) + Cash Balance Plan',
@@ -30,7 +32,14 @@ export default function CalculatorPreviewCard() {
 
         <div className="mt-12 bg-navy shadow-xl overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-2">
-            <div className="p-10 md:p-14 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-gold/20">
+            <div className="relative p-10 md:p-14 flex flex-col justify-center border-b lg:border-b-0 lg:border-r border-gold/20 min-h-[280px]">
+              <SiteImage
+                {...SITE_IMAGES.financeCharts}
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover opacity-20"
+              />
+              <div className="relative z-10">
               <p className="font-body text-xs tracking-widest uppercase text-gold">Example Result</p>
               <p className="font-heading font-light text-6xl md:text-7xl text-gold mt-4 leading-none">$835K+</p>
               <p className="font-body text-cream text-sm tracking-widest uppercase mt-3">
@@ -40,6 +49,7 @@ export default function CalculatorPreviewCard() {
                 Based on a 45-year-old owner earning $500K - your numbers will be different. Use the
                 calculator to see yours.
               </p>
+              </div>
             </div>
 
             <div className="p-10 md:p-14 flex flex-col justify-center bg-[#111d2e]">

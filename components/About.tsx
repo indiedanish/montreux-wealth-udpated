@@ -1,6 +1,8 @@
 'use client';
 import { useEffect, useRef } from 'react';
+import SiteImage from '@/components/SiteImage';
 import { useAnalytics } from '@/hooks/useAnalytics';
+import { SITE_IMAGES } from '@/lib/images';
 
 export default function About() {
   const { trackContactScroll } = useAnalytics();
@@ -77,59 +79,24 @@ export default function About() {
             </a>
           </div>
 
-          {/* Right: Geometric composition */}
-          <div ref={geoRef} className="scroll-reveal flex items-center justify-center" style={{ animationDelay: '150ms', transitionDelay: '150ms' }}>
-            <div className="relative w-80 h-80 md:w-96 md:h-96">
-              {/* Outermost rectangle - slow pulse */}
-              <div
-                className="absolute inset-0 animate-geometric-pulse"
-                style={{ border: '1px solid rgba(201,168,76,0.10)' }}
+          {/* Right: NYC advisory imagery */}
+          <div ref={geoRef} className="scroll-reveal relative" style={{ animationDelay: '150ms', transitionDelay: '150ms' }}>
+            <div className="relative aspect-[4/5] w-full max-w-md mx-auto overflow-hidden border border-gold/30 shadow-2xl">
+              <SiteImage
+                {...SITE_IMAGES.businessHandshake}
+                fill
+                sizes="(max-width: 768px) 100vw, 448px"
+                className="object-cover"
               />
-              {/* Middle rectangle */}
-              <div
-                className="absolute"
-                style={{
-                  inset: '24px',
-                  border: '1px solid rgba(201,168,76,0.20)',
-                }}
-              />
-              {/* Inner rectangle */}
-              <div
-                className="absolute"
-                style={{
-                  inset: '48px',
-                  border: '1px solid rgba(201,168,76,0.40)',
-                }}
-              />
-              {/* Innermost rectangle */}
-              <div
-                className="absolute"
-                style={{
-                  inset: '72px',
-                  border: '1px solid rgba(201,168,76,0.60)',
-                }}
-              />
-
-              {/* Diagonal lines */}
-              <svg
-                className="absolute inset-0 w-full h-full"
-                viewBox="0 0 384 384"
-                fill="none"
-              >
-                <line x1="72" y1="72" x2="312" y2="312" stroke="rgba(201,168,76,0.08)" strokeWidth="1" />
-                <line x1="312" y1="72" x2="72" y2="312" stroke="rgba(201,168,76,0.08)" strokeWidth="1" />
-              </svg>
-
-              {/* Center text */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center">
-                <p className="font-heading italic text-gold text-4xl leading-tight text-center">
-                  Est. New York
-                </p>
-                <p className="font-body text-xs tracking-widest text-gold/50 mt-2 uppercase">
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-8 text-center">
+                <p className="font-heading italic text-gold text-3xl leading-tight">Est. New York</p>
+                <p className="font-body text-xs tracking-widest text-cream/70 mt-2 uppercase">
                   Wealth Management
                 </p>
               </div>
             </div>
+            <div className="absolute -bottom-4 -right-4 w-full h-full border border-gold/20 -z-10 hidden md:block" aria-hidden />
           </div>
         </div>
       </div>

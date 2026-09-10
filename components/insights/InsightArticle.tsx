@@ -5,11 +5,13 @@ import TrackedLink from '@/components/analytics/TrackedLink';
 import FaqSection from '@/components/FaqSection';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import ArticleSchema from '@/components/insights/ArticleSchema';
+import SiteImage from '@/components/SiteImage';
 import {
   ALL_INSIGHT_POSTS,
   INSIGHT_CATEGORY_LABELS,
   type InsightPost,
 } from '@/lib/insights';
+import { getInsightImage } from '@/lib/images';
 import { CONTACT_EMAIL, SITE_NAME } from '@/lib/site';
 
 type InsightArticleProps = {
@@ -26,6 +28,7 @@ function formatDate(iso: string) {
 
 export default function InsightArticle({ post }: InsightArticleProps) {
   const { trackCta } = useAnalytics();
+  const heroImage = getInsightImage(post.slug, post.category);
   const relatedPosts = ALL_INSIGHT_POSTS.filter(
     (p) => p.slug !== post.slug && p.category === post.category,
   ).slice(0, 3);
@@ -34,12 +37,21 @@ export default function InsightArticle({ post }: InsightArticleProps) {
     <main>
       <ArticleSchema post={post} />
 
-      <section className="relative bg-navy pt-28 pb-12 overflow-hidden">
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse at center, #1C1C1E 0%, #0D1B2A 70%)' }}
-        />
-        <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
+      <section className="relative bg-navy pt-28 pb-12 overflow-hidden min-h-[420px] flex flex-col justify-end">
+        <div className="absolute inset-0">
+          <SiteImage
+            {...heroImage}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center opacity-35"
+          />
+          <div
+            className="absolute inset-0"
+            style={{ background: 'radial-gradient(ellipse at center, rgba(13,27,42,0.4) 0%, #0D1B2A 75%)' }}
+          />
+        </div>
+        <div className="relative z-10 max-w-3xl mx-auto px-6 text-center pb-4">
           <Link
             href="/insights"
             className="font-body text-xs tracking-widest uppercase text-gold/70 hover:text-gold transition-colors"
@@ -56,7 +68,7 @@ export default function InsightArticle({ post }: InsightArticleProps) {
             Updated {formatDate(post.updatedAt)} · {post.readTimeMinutes} min read · {SITE_NAME}
           </p>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gold/20" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gold/20 z-10" />
       </section>
 
       <article className="bg-cream py-16 md:py-20">

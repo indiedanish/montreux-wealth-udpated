@@ -1,10 +1,12 @@
 'use client';
 import Link from 'next/link';
 import TrackedLink from '@/components/analytics/TrackedLink';
+import SiteImage from '@/components/SiteImage';
 import CalculatorPreviewCard from '@/components/CalculatorPreviewCard';
 import CampaignContact from '@/components/CampaignContact';
 import FaqSection from '@/components/FaqSection';
 import { useAnalytics } from '@/hooks/useAnalytics';
+import { SITE_IMAGES } from '@/lib/images';
 import { CASH_BALANCE_FAQ } from '@/lib/site';
 
 const benefits = [
@@ -109,12 +111,21 @@ export default function CashBalancePlansPage() {
     <main>
       {/* Hero */}
       <section className="relative min-h-[85vh] bg-navy flex flex-col items-center justify-center pt-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <SiteImage
+            {...SITE_IMAGES.businessMeeting}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover opacity-25"
+          />
+          <div
+            className="absolute inset-0"
+            style={{ background: 'radial-gradient(ellipse at center, rgba(28,28,30,0.5) 0%, #0D1B2A 75%)' }}
+          />
+        </div>
         <div
-          className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse at center, #1C1C1E 0%, #0D1B2A 70%)' }}
-        />
-        <div
-          className="absolute inset-0 pointer-events-none"
+          className="absolute inset-0 pointer-events-none opacity-60"
           style={{
             backgroundImage: `
               linear-gradient(45deg, rgba(201,168,76,0.04) 1px, transparent 1px),

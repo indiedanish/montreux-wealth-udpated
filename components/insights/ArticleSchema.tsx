@@ -1,4 +1,5 @@
 import JsonLd from '@/components/JsonLd';
+import { getInsightImage } from '@/lib/images';
 import { LEGAL_NAME, SITE_NAME, SITE_URL } from '@/lib/site';
 import type { InsightPost } from '@/lib/insights/types';
 
@@ -8,6 +9,7 @@ type ArticleSchemaProps = {
 
 export default function ArticleSchema({ post }: ArticleSchemaProps) {
   const url = `${SITE_URL}/insights/${post.slug}`;
+  const image = getInsightImage(post.slug, post.category);
 
   const graph: Record<string, unknown>[] = [
     {
@@ -15,6 +17,7 @@ export default function ArticleSchema({ post }: ArticleSchemaProps) {
       '@type': 'BlogPosting',
       headline: post.title,
       description: post.description,
+      image: [image.src],
       datePublished: post.publishedAt,
       dateModified: post.updatedAt,
       author: {
