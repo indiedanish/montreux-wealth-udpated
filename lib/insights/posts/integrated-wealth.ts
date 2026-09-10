@@ -42,20 +42,20 @@ export const integratedWealthPosts: InsightPost[] = [
   },
   {
     slug: 'wealth-management-new-york-cfa-cpa',
-    title: 'Wealth Management in New York: Why CFA + CPA Leadership Matters',
+    title: 'Wealth Management Across the US: Why CFA + CPA Leadership Matters',
     description:
-      'For New York business owners and families, choosing a wealth manager with both investment (CFA) and tax (CPA) depth can improve outcomes across markets and tax code complexity.',
+      'For business owners and families across the US, choosing a wealth manager with both investment (CFA) and tax (CPA) depth can improve outcomes across markets and tax code complexity.',
     category: 'integrated-wealth',
     publishedAt: '2026-05-08',
     updatedAt: '2026-09-10',
     readTimeMinutes: 5,
     directAnswer:
-      'New York adds state and city tax complexity, high living costs, and sophisticated client needs. A wealth manager led by professionals with CFA and CPA credentials can align portfolio decisions with federal, state, and local tax consequences - a combination less common at investment-only or tax-only firms.',
+      'Affluent households across the US face federal and state tax complexity, multi-state income, and sophisticated planning needs. A wealth manager led by professionals with CFA and CPA credentials can align portfolio decisions with federal, state, and local tax consequences - a combination less common at investment-only or tax-only firms.',
     sections: [
       {
-        heading: 'New York-specific considerations',
+        heading: 'State and local tax considerations',
         paragraphs: [
-          'State and city income taxes, estate tax exposure, and real estate holdings all interact with investment strategy. Asset location, municipal bond allocation, and timing of income recognition require tax-aware portfolio management.',
+          'State income taxes, estate tax exposure, and real estate holdings vary by jurisdiction but all interact with investment strategy. Asset location, municipal bond allocation, and timing of income recognition require tax-aware portfolio management regardless of where you live.',
         ],
       },
       {

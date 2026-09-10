@@ -34,15 +34,15 @@ export const taxPlanningPosts: InsightPost[] = [
   },
   {
     slug: 'estate-planning-high-net-worth-new-york',
-    title: 'Estate Planning for High-Net-Worth Families in New York',
+    title: 'Estate Planning for High-Net-Worth Families',
     description:
-      'Estate planning considerations for affluent New York families - federal and state exposure, trusts, and coordination with investment portfolios.',
+      'Estate planning considerations for affluent families across the US - federal and state exposure, trusts, and coordination with investment portfolios.',
     category: 'tax-planning',
     publishedAt: '2026-06-08',
     updatedAt: '2026-09-10',
     readTimeMinutes: 6,
     directAnswer:
-      'High-net-worth New York families should coordinate estate plans with federal estate tax exemptions, New York estate tax rules, trust structures, beneficiary designations on accounts, and liquidity for estate tax payments - integrated with investment and charitable strategies.',
+      'High-net-worth families should coordinate estate plans with federal estate tax exemptions, applicable state estate and inheritance rules, trust structures, beneficiary designations on accounts, and liquidity for estate tax payments - integrated with investment and charitable strategies.',
     sections: [
       {
         heading: 'Beyond documents',

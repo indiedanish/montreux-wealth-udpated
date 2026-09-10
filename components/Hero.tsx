@@ -92,12 +92,12 @@ export default function Hero() {
           </span>
         </div>
 
-        {/* H1 - keyword-aligned for SEO while preserving brand voice */}
+        {/* H1 */}
         <h1 className="font-heading font-light text-5xl md:text-7xl leading-tight text-cream tracking-tight max-w-4xl">
           Integrated Wealth Management
           <br />
           <span className="text-4xl md:text-5xl text-cream/90">
-            in <em className="text-gold not-italic" style={{ fontStyle: 'italic' }}>New York</em>
+            Across the <em className="text-gold not-italic" style={{ fontStyle: 'italic' }}>US</em>
           </span>
         </h1>
 

@@ -35,7 +35,7 @@ export default function InsightsIndex() {
           </h1>
           <p className="font-body text-cream/60 text-base md:text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
             Educational guides on Cash Balance Plans, integrated wealth management, and tax strategy for
-            business owners and families in New York.
+            business owners and families across the US.
           </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gold/20" />

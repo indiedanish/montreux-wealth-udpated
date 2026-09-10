@@ -43,7 +43,7 @@ export default function DisclosuresPage() {
             <P>
               Montreux Group LLC (&quot;Montreux&quot;) is a Registered Investment Advisor (&quot;RIA&quot;),
               located in the State of New York. Montreux provides investment advisory and related services for
-              clients nationally. Montreux will maintain all applicable registration and licenses as required
+              clients across the US. Montreux will maintain all applicable registration and licenses as required
               by the various states in which Montreux conducts business, as applicable. Montreux renders
               individualized responses to persons in a particular state only after complying with all
               regulatory requirements, or pursuant to an applicable state exemption or exclusion.

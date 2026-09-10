@@ -10,7 +10,8 @@ type PageSeo = {
 
 export function createMetadata({ title, description, path, noIndex }: PageSeo): Metadata {
   const url = `${SITE_URL}${path}`;
-  const fullTitle = path === '/' ? `${SITE_NAME} | Integrated Wealth Management in New York` : `${title} | ${SITE_NAME}`;
+  const fullTitle =
+    path === '/' ? `${SITE_NAME} | Integrated Wealth Management Across the US` : `${title} | ${SITE_NAME}`;
 
   return {
     metadataBase: new URL(SITE_URL),
@@ -38,7 +39,7 @@ export const PAGE_SEO = {
   home: {
     title: SITE_NAME,
     description:
-      'CFA & CPA-led integrated wealth management in New York - investment management, financial planning, and tax services under one roof.',
+      'CFA & CPA-led integrated wealth management serving clients across the US - investment management, financial planning, and tax services under one roof.',
     path: '/',
   },
   investmentManagement: {
@@ -90,7 +91,7 @@ export const PAGE_SEO = {
   insights: {
     title: 'Insights - Wealth & Tax Guides',
     description:
-      'Educational articles on Cash Balance Plans, integrated wealth management, and tax strategy for business owners and high-net-worth families in New York.',
+      'Educational articles on Cash Balance Plans, integrated wealth management, and tax strategy for business owners and high-net-worth families across the US.',
     path: '/insights',
   },
 } as const;

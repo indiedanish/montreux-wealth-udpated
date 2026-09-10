@@ -91,13 +91,13 @@ export default function About() {
                 }}
               />
               <div className="relative text-center">
-                <p className="font-heading italic text-gold text-3xl leading-tight">Est. New York</p>
+                <p className="font-heading italic text-gold text-3xl leading-tight">Across the US</p>
                 <p className="font-body text-xs tracking-widest text-cream/70 mt-2 uppercase">
                   Wealth Management
                 </p>
                 <div className="w-16 h-px bg-gold/40 mx-auto mt-8" />
                 <p className="font-body text-cream/50 text-sm leading-relaxed mt-8 max-w-xs">
-                  CFA + CPA leadership · Integrated advisory · Discretion by design
+                  Based in New York · Serving clients across the US · CFA + CPA leadership
                 </p>
               </div>
             </div>
