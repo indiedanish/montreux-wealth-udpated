@@ -93,6 +93,13 @@ export default function Footer() {
               Tax Savings Calculator
             </Link>
             <Link
+              href="/insights"
+              onClick={() => trackNav('Insights', '/insights')}
+              className="font-body text-xs tracking-widest uppercase text-cream/60 hover:text-gold transition-colors duration-200"
+            >
+              Insights
+            </Link>
+            <Link
               href="/client-portal"
               onClick={() => trackNav('Client Portal', '/client-portal')}
               className="font-body text-xs tracking-widest uppercase text-cream/60 hover:text-gold transition-colors duration-200"

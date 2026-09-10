@@ -472,6 +472,24 @@ export default function CashBalancePlansPage() {
       {/* FAQ — structured for SEO & AEO */}
       <FaqSection items={CASH_BALANCE_FAQ} />
 
+      {/* Insights cross-link */}
+      <section className="bg-white py-16 border-t border-gray-100">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <h2 className="font-heading font-light text-2xl text-navy">Learn more in our Insights library</h2>
+          <p className="font-body text-text-muted text-sm mt-4 leading-relaxed">
+            In-depth guides on Cash Balance Plans, contribution limits, tax deadlines, and integrated wealth
+            strategy.
+          </p>
+          <TrackedLink
+            href="/insights"
+            tracking={{ type: 'nav', item: 'Insights library', location: 'cash_balance_plans_page' }}
+            className="inline-block mt-8 font-body text-sm tracking-widest uppercase text-gold hover:text-navy transition-colors"
+          >
+            Browse all articles →
+          </TrackedLink>
+        </div>
+      </section>
+
       {/* Lead Capture */}
       <CampaignContact />
 

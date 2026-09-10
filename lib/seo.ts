@@ -87,4 +87,10 @@ export const PAGE_SEO = {
     description: 'Privacy policy for Montreux Wealth Management and Montreux Group LLC.',
     path: '/privacy-policy',
   },
+  insights: {
+    title: 'Insights — Wealth & Tax Guides',
+    description:
+      'Educational articles on Cash Balance Plans, integrated wealth management, and tax strategy for business owners and high-net-worth families in New York.',
+    path: '/insights',
+  },
 } as const;

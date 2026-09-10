@@ -39,6 +39,7 @@ export type PageCategory =
   | 'service'
   | 'campaign'
   | 'calculator'
+  | 'insights'
   | 'legal'
   | 'portal';
 
@@ -56,6 +57,9 @@ export function getPageContext(pathname: string): {
   }
   if (pathname.startsWith('/cash-balance-plans')) {
     return { page_path: pathname, page_category: 'campaign', funnel_stage: 'consideration' };
+  }
+  if (pathname.startsWith('/insights')) {
+    return { page_path: pathname, page_category: 'insights', funnel_stage: 'consideration' };
   }
   if (
     pathname.startsWith('/investment-management') ||

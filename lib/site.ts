@@ -23,6 +23,7 @@ export const INDEXABLE_ROUTES = [
   { path: '/accounting-tax', priority: 0.9, changeFrequency: 'monthly' as const },
   { path: '/cash-balance-plans', priority: 0.95, changeFrequency: 'monthly' as const },
   { path: '/cash-balance-calculator', priority: 0.95, changeFrequency: 'monthly' as const },
+  { path: '/insights', priority: 0.85, changeFrequency: 'weekly' as const },
   { path: '/disclosures', priority: 0.3, changeFrequency: 'yearly' as const },
   { path: '/privacy-policy', priority: 0.3, changeFrequency: 'yearly' as const },
 ];

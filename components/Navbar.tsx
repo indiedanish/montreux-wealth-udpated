@@ -125,6 +125,14 @@ export default function Navbar() {
               )}
             </div>
 
+            <Link
+              href="/insights"
+              onClick={() => trackNav('Insights', '/insights')}
+              className="font-body text-xs tracking-widest uppercase text-cream hover:text-gold transition-colors duration-200"
+            >
+              Insights
+            </Link>
+
             <button
               onClick={() => handleAnchorNav('about-section', 'About')}
               className="font-body text-xs tracking-widest uppercase text-cream hover:text-gold transition-colors duration-200"
@@ -200,6 +208,13 @@ export default function Navbar() {
               {s.label}
             </Link>
           ))}
+          <Link
+            href="/insights"
+            onClick={() => trackNav('Insights', '/insights')}
+            className="font-body text-sm tracking-widest uppercase text-cream/70 hover:text-gold transition-colors duration-200"
+          >
+            Insights
+          </Link>
           <button
             onClick={() => handleAnchorNav('about-section', 'About')}
             className="font-body text-sm tracking-widest uppercase text-cream hover:text-gold transition-colors duration-200"
