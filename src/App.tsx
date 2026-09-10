@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
@@ -12,14 +12,11 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import CashBalancePlansPage from './pages/CashBalancePlansPage';
 import CashBalanceCalculatorPage from './pages/CashBalanceCalculatorPage';
 
-function AppShell() {
-  const { pathname } = useLocation();
-  const isCalculatorFunnel = pathname === '/cash-balance-calculator';
-
+export default function App() {
   return (
-    <>
+    <BrowserRouter>
       <ScrollToTop />
-      {!isCalculatorFunnel && <Navbar />}
+      <Navbar />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/investment-management" element={<InvestmentManagementPage />} />
@@ -31,15 +28,7 @@ function AppShell() {
         <Route path="/disclosures" element={<DisclosuresPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
       </Routes>
-      {!isCalculatorFunnel && <Footer />}
-    </>
-  );
-}
-
-export default function App() {
-  return (
-    <BrowserRouter>
-      <AppShell />
+      <Footer />
     </BrowserRouter>
   );
 }

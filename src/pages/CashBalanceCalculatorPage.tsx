@@ -1,11 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import CashBalanceCalculator from '../components/CashBalanceCalculator';
+import CalendlyEmbed from '../components/CalendlyEmbed';
 import { formatCurrency, type CalculatorResults } from '../utils/cashBalanceCalc';
-
-// hide_event_type_details skips Calendly's duplicate logo + event landing page → straight to calendar
-const CALENDLY_URL =
-  'https://calendly.com/f-hasan-montreuxwealth/30min?hide_gdpr_banner=1&hide_event_type_details=1&background_color=ffffff&text_color=1a1a1a&primary_color=c9a84c';
 
 function StepIndicator({ step }: { step: 1 | 2 }) {
   return (
@@ -72,7 +69,7 @@ export default function CashBalanceCalculatorPage() {
   return (
     <main className="bg-cream min-h-screen">
       {/* Compact header — stays visible, minimal scroll for ad traffic */}
-      <section className="bg-navy pt-10 md:pt-12 pb-8 md:pb-10">
+      <section className="bg-navy pt-24 pb-8 md:pb-10">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <StepIndicator step={step} />
           {step === 1 ? (
@@ -125,19 +122,7 @@ export default function CashBalanceCalculatorPage() {
               </p>
             </div>
 
-            {/* Calendly embed — clip top header bar to avoid duplicate org logo */}
-            <div className="bg-white shadow-sm overflow-hidden border border-gray-100">
-              <div className="relative h-[620px] md:h-[680px] overflow-hidden">
-                <iframe
-                  title="Book a consultation with Montreux Wealth"
-                  src={CALENDLY_URL}
-                  width="100%"
-                  height="100%"
-                  frameBorder="0"
-                  className="absolute inset-0 w-full h-[calc(100%+72px)] -top-[72px] border-0"
-                />
-              </div>
-            </div>
+            <CalendlyEmbed height="620px" />
 
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-6">
               <button
