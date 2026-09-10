@@ -1,33 +1,18 @@
 import { useMemo, useState } from 'react';
+import {
+  LIMIT_401K_2026,
+  computeCalculatorResults,
+  formatCurrency,
+  type CalculatorResults,
+  type EmployeeCount,
+  type StateTaxProfile,
+} from '../utils/cashBalanceCalc';
 
-const LIMIT_401K_2026 = 70000;
-const RETURN_RATE = 0.07;
+type CashBalanceCalculatorProps = {
+  onContinue?: (results: CalculatorResults) => void;
+};
 
-type StateTaxProfile = 'high' | 'mid' | 'low';
-type EmployeeCount = 'solo' | 'small' | 'medium' | 'large';
-
-function estimateCbContribution(age: number, income: number, employees: EmployeeCount): number {
-  const ageFactor = age < 40 ? 0.35 : age < 50 ? 0.55 : age < 60 ? 0.75 : 1;
-  const base = Math.min(income * 0.45, age >= 55 ? 320000 : age >= 45 ? 250000 : 180000);
-  const employeeReduction =
-    employees === 'solo' ? 1 : employees === 'small' ? 0.85 : employees === 'medium' ? 0.65 : 0.45;
-  return Math.round(base * ageFactor * employeeReduction);
-}
-
-function marginalRate(federal: number, stateProfile: StateTaxProfile): number {
-  const stateRates: Record<StateTaxProfile, number> = { high: 0.1, mid: 0.05, low: 0 };
-  return federal + stateRates[stateProfile];
-}
-
-function formatCurrency(value: number): string {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
-    maximumFractionDigits: 0,
-  }).format(value);
-}
-
-export default function CashBalanceCalculator() {
+export default function CashBalanceCalculator({ onContinue }: CashBalanceCalculatorProps) {
   const [age, setAge] = useState(45);
   const [income, setIncome] = useState(500000);
   const [contribution401k, setContribution401k] = useState(40000);
@@ -36,35 +21,19 @@ export default function CashBalanceCalculator() {
   const [employees, setEmployees] = useState<EmployeeCount>('solo');
   const [yearsToRetirement, setYearsToRetirement] = useState(15);
 
-  const results = useMemo(() => {
-    const rate = marginalRate(federalRate, stateProfile);
-    const cbContribution = estimateCbContribution(age, income, employees);
-    const totalWithCb = Math.min(contribution401k + cbContribution, cbContribution + LIMIT_401K_2026);
-    const additionalContribution = totalWithCb - contribution401k;
-
-    const taxSavings401k = contribution401k * rate;
-    const taxSavingsWithCb = totalWithCb * rate;
-    const additionalTaxSavings = additionalContribution * rate;
-    const lifetimeTaxSavings = additionalTaxSavings * yearsToRetirement;
-
-    const fv401k =
-      contribution401k * ((Math.pow(1 + RETURN_RATE, yearsToRetirement) - 1) / RETURN_RATE);
-    const fvWithCb = totalWithCb * ((Math.pow(1 + RETURN_RATE, yearsToRetirement) - 1) / RETURN_RATE);
-    const additionalFv = fvWithCb - fv401k;
-
-    return {
-      cbContribution,
-      totalWithCb,
-      additionalContribution,
-      taxSavings401k,
-      taxSavingsWithCb,
-      additionalTaxSavings,
-      lifetimeTaxSavings,
-      fv401k,
-      fvWithCb,
-      additionalFv,
-    };
-  }, [age, income, contribution401k, federalRate, stateProfile, employees, yearsToRetirement]);
+  const results = useMemo(
+    () =>
+      computeCalculatorResults({
+        age,
+        income,
+        contribution401k,
+        federalRate,
+        stateProfile,
+        employees,
+        yearsToRetirement,
+      }),
+    [age, income, contribution401k, federalRate, stateProfile, employees, yearsToRetirement]
+  );
 
   const selectClass =
     'w-full border border-gray-200 bg-white px-4 py-3 text-sm font-body text-text-dark focus:outline-none focus:border-gold transition-colors';
@@ -72,26 +41,12 @@ export default function CashBalanceCalculator() {
 
   return (
     <div className="bg-white shadow-sm">
-      <div className="bg-navy px-8 py-10 md:px-12">
-        <div className="flex items-center gap-4 mb-4">
-          <div className="w-8 h-px bg-gold" />
-          <span className="font-body text-xs tracking-widest uppercase text-gold">Tax Savings Estimator</span>
-        </div>
-        <h3 className="font-heading font-light text-2xl md:text-3xl text-cream leading-snug">
-          See What a 401(k) Alone May Be Leaving on the Table
-        </h3>
-        <p className="font-body text-cream/60 text-sm mt-4 max-w-2xl leading-relaxed">
-          Illustrative only. Actual contribution limits depend on actuarial calculations, plan design,
-          and nondiscrimination testing. Not tax, legal, or investment advice.
-        </p>
-      </div>
-
       <div className="grid grid-cols-1 lg:grid-cols-2">
         {/* Inputs */}
-        <div className="p-8 md:p-12 border-b lg:border-b-0 lg:border-r border-gray-100">
-          <p className="font-body text-xs tracking-widest uppercase text-gold mb-8">Your Profile</p>
+        <div className="p-6 md:p-10 border-b lg:border-b-0 lg:border-r border-gray-100">
+          <p className="font-body text-xs tracking-widest uppercase text-gold mb-6">Your Profile</p>
 
-          <div className="space-y-8">
+          <div className="space-y-6">
             <div>
               <label htmlFor="cb-age" className={labelClass}>
                 Your Age — {age}
@@ -139,14 +94,14 @@ export default function CashBalanceCalculator() {
                 className="w-full accent-gold"
               />
               <p className="font-body text-sm text-text-muted mt-2">
-                {formatCurrency(contribution401k)} · 2026 combined limit: {formatCurrency(LIMIT_401K_2026)}
+                {formatCurrency(contribution401k)} · 2026 limit: {formatCurrency(LIMIT_401K_2026)}
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="cb-federal" className={labelClass}>
-                  Federal Marginal Rate
+                  Federal Rate
                 </label>
                 <select
                   id="cb-federal"
@@ -162,7 +117,7 @@ export default function CashBalanceCalculator() {
               </div>
               <div>
                 <label htmlFor="cb-state" className={labelClass}>
-                  State Tax Profile
+                  State Taxes
                 </label>
                 <select
                   id="cb-state"
@@ -170,16 +125,16 @@ export default function CashBalanceCalculator() {
                   onChange={(e) => setStateProfile(e.target.value as StateTaxProfile)}
                   className={selectClass}
                 >
-                  <option value="high">High-tax state (~10%)</option>
-                  <option value="mid">Mid-tax state (~5%)</option>
-                  <option value="low">Low / no-tax state (~0%)</option>
+                  <option value="high">High (~10%)</option>
+                  <option value="mid">Mid (~5%)</option>
+                  <option value="low">Low / none</option>
                 </select>
               </div>
             </div>
 
             <div>
               <label htmlFor="cb-employees" className={labelClass}>
-                Non-Owner Employees
+                Employees
               </label>
               <select
                 id="cb-employees"
@@ -187,16 +142,16 @@ export default function CashBalanceCalculator() {
                 onChange={(e) => setEmployees(e.target.value as EmployeeCount)}
                 className={selectClass}
               >
-                <option value="solo">Just me (or me + spouse)</option>
-                <option value="small">1–3 employees</option>
-                <option value="medium">4–10 employees</option>
-                <option value="large">10+ employees</option>
+                <option value="solo">Just me (+ spouse)</option>
+                <option value="small">1–3</option>
+                <option value="medium">4–10</option>
+                <option value="large">10+</option>
               </select>
             </div>
 
             <div>
               <label htmlFor="cb-years" className={labelClass}>
-                Years Until Retirement — {yearsToRetirement}
+                Years to Retirement — {yearsToRetirement}
               </label>
               <input
                 id="cb-years"
@@ -211,65 +166,58 @@ export default function CashBalanceCalculator() {
           </div>
         </div>
 
-        {/* Results */}
-        <div className="p-8 md:p-12 bg-cream">
-          <p className="font-body text-xs tracking-widest uppercase text-gold mb-6">Your Illustration</p>
+        {/* Results — sticky on desktop for always-visible value */}
+        <div className="p-6 md:p-10 bg-cream lg:sticky lg:top-24 lg:self-start">
+          <p className="font-body text-xs tracking-widest uppercase text-gold mb-4">Your Estimate</p>
 
-          <div className="bg-navy p-8 mb-8">
-            <p className="font-body text-xs tracking-widest uppercase text-gold/70">Potential Lifetime Tax Savings</p>
-            <p className="font-heading font-light text-4xl md:text-5xl text-gold mt-3">
+          <div className="bg-navy p-6 md:p-8 mb-6">
+            <p className="font-body text-xs tracking-widest uppercase text-gold/70">
+              Potential Lifetime Tax Savings
+            </p>
+            <p className="font-heading font-light text-4xl md:text-5xl text-gold mt-2">
               {formatCurrency(results.lifetimeTaxSavings)}
             </p>
-            <p className="font-body text-cream/60 text-sm mt-4 leading-relaxed">
-              {formatCurrency(results.additionalTaxSavings)} in annual tax savings × {yearsToRetirement} years
-              of peak earning — by sheltering an additional{' '}
-              {formatCurrency(results.additionalContribution)} per year beyond your current 401(k).
+            <p className="font-body text-cream/60 text-sm mt-3 leading-relaxed">
+              {formatCurrency(results.additionalTaxSavings)}/yr × {yearsToRetirement} years
             </p>
           </div>
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm font-body">
-              <thead>
-                <tr className="border-b border-gold/30">
-                  <th className="text-left py-3 text-text-muted font-normal">Metric</th>
-                  <th className="text-right py-3 text-text-muted font-normal">401(k) Only</th>
-                  <th className="text-right py-3 text-text-muted font-normal">With CBP</th>
-                  <th className="text-right py-3 text-gold font-normal">Your Benefit</th>
-                </tr>
-              </thead>
-              <tbody className="text-navy">
-                <tr className="border-b border-gray-200">
-                  <td className="py-4">Annual Contribution</td>
-                  <td className="text-right py-4">{formatCurrency(contribution401k)}</td>
-                  <td className="text-right py-4">{formatCurrency(results.totalWithCb)}</td>
-                  <td className="text-right py-4 text-gold font-medium">
-                    +{formatCurrency(results.additionalContribution)}
-                  </td>
-                </tr>
-                <tr className="border-b border-gray-200">
-                  <td className="py-4">Annual Tax Savings</td>
-                  <td className="text-right py-4">{formatCurrency(results.taxSavings401k)}</td>
-                  <td className="text-right py-4">{formatCurrency(results.taxSavingsWithCb)}</td>
-                  <td className="text-right py-4 text-gold font-medium">
-                    +{formatCurrency(results.additionalTaxSavings)}
-                  </td>
-                </tr>
-                <tr>
-                  <td className="py-4">Est. Value at Retirement</td>
-                  <td className="text-right py-4">{formatCurrency(results.fv401k)}</td>
-                  <td className="text-right py-4">{formatCurrency(results.fvWithCb)}</td>
-                  <td className="text-right py-4 text-gold font-medium">
-                    +{formatCurrency(results.additionalFv)}
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+          <div className="grid grid-cols-2 gap-3 mb-6">
+            <div className="bg-white p-4">
+              <p className="font-body text-xs text-text-muted">Annual Tax Savings</p>
+              <p className="font-heading text-xl text-gold mt-1">
+                +{formatCurrency(results.additionalTaxSavings)}
+              </p>
+            </div>
+            <div className="bg-white p-4">
+              <p className="font-body text-xs text-text-muted">Extra Retirement Value</p>
+              <p className="font-heading text-xl text-gold mt-1">
+                +{formatCurrency(results.additionalFv)}
+              </p>
+            </div>
           </div>
 
-          <p className="font-body text-xs text-text-muted mt-6 leading-relaxed italic">
-            Assumes 7% long-run investment return. CBP contributions are age-banded estimates. Plans with
-            employees are subject to nondiscrimination testing. Actuarial and TPA fees (typically $2,000–$5,000/year)
-            not included.
+          {onContinue && (
+            <button
+              type="button"
+              onClick={() => onContinue(results)}
+              className="group flex items-center justify-center gap-3 w-full bg-gold text-navy px-8 py-5 text-sm md:text-base tracking-widest uppercase font-semibold hover:bg-gold-light transition-all duration-300 font-body shadow-lg shadow-gold/20"
+            >
+              Book My Free 30-Min Review
+              <svg
+                className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </button>
+          )}
+
+          <p className="font-body text-xs text-text-muted mt-4 leading-relaxed italic">
+            Illustrative only · Not tax, legal, or investment advice
           </p>
         </div>
       </div>

@@ -10,6 +10,7 @@ import ClientPortalPage from './pages/ClientPortalPage';
 import DisclosuresPage from './pages/DisclosuresPage';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 import CashBalancePlansPage from './pages/CashBalancePlansPage';
+import CashBalanceCalculatorPage from './pages/CashBalanceCalculatorPage';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Route path="/financial-planning" element={<FinancialPlanningPage />} />
         <Route path="/accounting-tax" element={<AccountingTaxPage />} />
         <Route path="/cash-balance-plans" element={<CashBalancePlansPage />} />
+        <Route path="/cash-balance-calculator" element={<CashBalanceCalculatorPage />} />
         <Route path="/client-portal" element={<ClientPortalPage />} />
         <Route path="/disclosures" element={<DisclosuresPage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />

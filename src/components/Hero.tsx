@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 export default function Hero() {
   const scrollToContact = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -74,7 +76,7 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-5xl mx-auto">
         {/* Eyebrow */}
-        <div className="animate-fade-up-1 flex items-center gap-4 mb-10">
+        <div className="flex items-center gap-4 mb-10">
           <div className="w-12 h-px bg-gold" />
           <span className="font-body text-xs tracking-widest uppercase text-gold">
             Integrated Wealth Management
@@ -82,7 +84,7 @@ export default function Hero() {
         </div>
 
         {/* H1 */}
-        <h1 className="animate-fade-up-2 font-heading font-light text-5xl md:text-7xl leading-tight text-cream tracking-tight max-w-4xl">
+        <h1 className="font-heading font-light text-5xl md:text-7xl leading-tight text-cream tracking-tight max-w-4xl">
           Where Financial{' '}
           <em className="text-gold not-italic" style={{ fontStyle: 'italic' }}>Precision</em>
           <br />
@@ -90,19 +92,27 @@ export default function Hero() {
         </h1>
 
         {/* Subheadline */}
-        <p className="animate-fade-up-3 font-body font-light text-lg md:text-xl text-cream/70 max-w-2xl mt-8 leading-relaxed">
+        <p className="font-body font-light text-lg md:text-xl text-cream/70 max-w-2xl mt-8 leading-relaxed">
           The integrated management of your wealth — investments, planning, and taxation — designed to
           compound your advantage across every chapter of your life.
         </p>
 
-        {/* CTA */}
-        <a
-          href="#contact"
-          onClick={scrollToContact}
-          className="animate-fade-up-4 inline-block mt-12 bg-gold text-navy px-8 py-3 text-sm tracking-widest uppercase font-medium hover:bg-gold-light transition-all duration-300 font-body focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy"
-        >
-          Begin the Conversation →
-        </a>
+        {/* CTAs */}
+        <div className="flex flex-col sm:flex-row items-center gap-4 mt-12 w-full max-w-md sm:max-w-none mx-auto">
+          <a
+            href="#contact"
+            onClick={scrollToContact}
+            className="w-full sm:w-auto bg-gold text-navy px-8 py-4 text-sm tracking-widest uppercase font-semibold hover:bg-gold-light transition-all duration-300 font-body focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-navy text-center"
+          >
+            Begin the Conversation →
+          </a>
+          <Link
+            to="/cash-balance-calculator"
+            className="w-full sm:w-auto border border-gold text-gold px-8 py-4 text-sm tracking-widest uppercase font-semibold hover:bg-gold hover:text-navy transition-all duration-300 font-body text-center"
+          >
+            Tax Savings Calculator →
+          </Link>
+        </div>
       </div>
 
       {/* Bottom gold line */}

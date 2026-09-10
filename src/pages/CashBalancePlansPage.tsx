@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import CashBalanceCalculator from '../components/CashBalanceCalculator';
+import CalculatorPreviewCard from '../components/CalculatorPreviewCard';
 import CampaignContact from '../components/CampaignContact';
 
 const benefits = [
@@ -97,10 +97,6 @@ export default function CashBalancePlansPage() {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const scrollToCalculator = () => {
-    document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <main>
       {/* Hero */}
@@ -120,33 +116,42 @@ export default function CashBalancePlansPage() {
           }}
         />
         <div className="relative z-10 flex flex-col items-center text-center px-6 py-24 max-w-5xl mx-auto">
-          <div className="flex items-center gap-4 mb-8 animate-fade-up-1">
+          <div className="flex items-center gap-4 mb-8">
             <div className="w-12 h-px bg-gold" />
             <span className="font-body text-xs tracking-widest uppercase text-gold">Cash Balance Plans</span>
             <div className="w-12 h-px bg-gold" />
           </div>
-          <h1 className="font-heading font-light text-4xl md:text-6xl lg:text-7xl text-cream tracking-tight leading-tight animate-fade-up-2">
+          <h1 className="font-heading font-light text-4xl md:text-6xl lg:text-7xl text-cream tracking-tight leading-tight">
             Reduce Today's Taxes.
             <br />
             <span className="text-gold">Accelerate Tomorrow's Wealth.</span>
           </h1>
-          <p className="font-body font-light text-cream/70 text-lg md:text-xl max-w-3xl mt-8 leading-relaxed animate-fade-up-3">
+          <p className="font-body font-light text-cream/70 text-lg md:text-xl max-w-3xl mt-8 leading-relaxed">
             For high-income business owners, a Cash Balance Plan may allow you to deduct significantly more
             than a 401(k) alone — potentially saving six figures in taxes while building retirement assets
             that compound for decades.
           </p>
-          <div className="flex flex-wrap justify-center gap-4 mt-12 animate-fade-up-4">
+          <div className="flex flex-col items-center gap-5 mt-12 w-full max-w-lg mx-auto">
+            <Link
+              to="/cash-balance-calculator"
+              className="group flex items-center justify-center gap-3 w-full bg-gold text-navy px-10 py-5 text-base tracking-widest uppercase font-semibold hover:bg-gold-light transition-all duration-300 font-body shadow-lg shadow-gold/25 hover:shadow-gold/40"
+            >
+              Calculate My Tax Savings
+              <svg
+                className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
             <button
               onClick={scrollToContact}
-              className="bg-gold text-navy px-8 py-3 text-sm tracking-widest uppercase font-medium hover:bg-gold-light transition-all duration-300 font-body"
+              className="w-full border border-gold/60 text-gold px-8 py-3 text-sm tracking-widest uppercase font-medium hover:bg-gold/10 transition-all duration-300 font-body"
             >
               Request a Free Consultation
-            </button>
-            <button
-              onClick={scrollToCalculator}
-              className="border border-gold text-gold px-8 py-3 text-sm tracking-widest uppercase font-medium hover:bg-gold hover:text-navy transition-all duration-300 font-body"
-            >
-              See Your Potential Savings →
             </button>
           </div>
           <p className="font-body text-cream/40 text-xs mt-8 tracking-wide">
@@ -215,45 +220,18 @@ export default function CashBalancePlansPage() {
               </div>
             ))}
           </div>
-          <div className="text-center mt-8">
-            <button
-              onClick={scrollToCalculator}
-              className="font-body text-sm text-gold hover:text-gold-light transition-colors tracking-wide"
+          <div className="text-center mt-10">
+            <Link
+              to="/cash-balance-calculator"
+              className="inline-flex items-center justify-center gap-2 bg-gold text-navy px-10 py-4 text-sm tracking-widest uppercase font-semibold hover:bg-gold-light transition-all duration-300 font-body shadow-md"
             >
-              Run the Numbers Before Your Next Payment →
-            </button>
+              Calculate My Tax Savings →
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Calculator */}
-      <section id="calculator" className="bg-white py-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10">
-          <div className="flex items-center gap-4 justify-center mb-4">
-            <div className="w-12 h-px bg-gold" />
-            <span className="font-body text-xs tracking-widest uppercase text-gold">Interactive Estimator</span>
-            <div className="w-12 h-px bg-gold" />
-          </div>
-          <h2 className="font-heading font-light text-3xl md:text-4xl text-navy text-center leading-snug">
-            Model Your Potential Savings
-          </h2>
-          <p className="font-body text-text-muted text-base text-center max-w-2xl mx-auto mt-6 leading-relaxed">
-            Adjust the inputs below to see an illustrative comparison between your current 401(k) contributions
-            and what may be possible with an integrated Cash Balance Plan.
-          </p>
-          <div className="mt-12">
-            <CashBalanceCalculator />
-          </div>
-          <div className="text-center mt-10">
-            <button
-              onClick={scrollToContact}
-              className="bg-gold text-navy px-8 py-3 text-sm tracking-widest uppercase font-medium hover:bg-gold-light transition-all duration-300 font-body"
-            >
-              Get Your Custom Plan Illustration →
-            </button>
-          </div>
-        </div>
-      </section>
+      <CalculatorPreviewCard />
 
       {/* Benefits Grid */}
       <section className="bg-cream py-24">
