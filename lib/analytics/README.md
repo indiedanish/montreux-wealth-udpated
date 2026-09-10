@@ -47,6 +47,7 @@ Every custom event includes automatic context: `page_path`, `page_category`, `fu
 | `calendly_viewed` | Calendly embed in viewport | `location` |
 | `mobile_menu_opened` | Mobile nav opened | `nav_location` |
 | `services_menu_opened` | Desktop services dropdown | `nav_location` |
+| `external_link_clicked` | External URL or mailto | `label`, `external_url`, `link_location`, `link_type` |
 
 ## Funnel stages (auto-attached)
 

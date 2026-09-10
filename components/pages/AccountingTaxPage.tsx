@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -76,8 +77,11 @@ const stats = [
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function AccountingTaxPage() {
+  const { trackCta, trackContactScroll } = useAnalytics();
+
   const scrollToContact = (e: React.MouseEvent) => {
     e.preventDefault();
+    trackContactScroll('accounting_tax_cta');
     window.scrollTo({ top: 0 });
     setTimeout(() => (window.location.href = '/#contact'), 50);
   };
@@ -295,6 +299,9 @@ export default function AccountingTaxPage() {
             </a>
             <Link
               href="/cash-balance-plans"
+              onClick={() =>
+                trackCta('Cash Balance Plans', 'accounting_tax_cta', '/cash-balance-plans')
+              }
               className="border border-gold text-gold px-8 py-3 text-sm tracking-widest uppercase font-medium hover:bg-gold hover:text-navy transition-all duration-300 font-body"
             >
               Cash Balance Plans →

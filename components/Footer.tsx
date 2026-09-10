@@ -5,14 +5,14 @@ import { useAnalytics } from '@/hooks/useAnalytics';
 import { ADDRESS, CONTACT_EMAIL } from '@/lib/site';
 
 export default function Footer() {
-  const { track, events } = useAnalytics();
+  const { trackNavClick, trackContactScroll, trackExternal } = useAnalytics();
 
   const trackNav = (item: string, destination: string) => {
-    track(events.NAV_CLICKED, { nav_item: item, destination, nav_location: 'footer' });
+    trackNavClick(item, destination, 'footer');
   };
   const scrollToContact = (e: React.MouseEvent) => {
     e.preventDefault();
-    trackNav('Contact', '/#contact');
+    trackContactScroll('footer', 'Contact');
     const el = document.getElementById('contact');
     if (el) {
       el.scrollIntoView({ behavior: 'smooth' });
@@ -40,6 +40,9 @@ export default function Footer() {
             </p>
             <a
               href={`mailto:${CONTACT_EMAIL}`}
+              onClick={() =>
+                trackExternal(CONTACT_EMAIL, `mailto:${CONTACT_EMAIL}`, 'footer', 'email')
+              }
               className="font-body text-xs text-gold/70 hover:text-gold transition-colors duration-200 mt-3 inline-block"
             >
               {CONTACT_EMAIL}
@@ -112,6 +115,7 @@ export default function Footer() {
             </p>
             <Link
               href="/disclosures"
+              onClick={() => trackNav('Disclosures blurb', '/disclosures')}
               className="font-body text-xs text-gold underline underline-offset-2 mt-3 inline-block hover:text-gold-light transition-colors duration-200"
             >
               For important disclosures about our services, fees, and conflicts of interest, please review
@@ -129,12 +133,14 @@ export default function Footer() {
           <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             <Link
               href="/disclosures"
+              onClick={() => trackNav('Disclosures', '/disclosures')}
               className="font-body text-xs text-cream/30 hover:text-gold transition-colors duration-200"
             >
               Disclosures
             </Link>
             <Link
               href="/privacy-policy"
+              onClick={() => trackNav('Privacy Policy', '/privacy-policy')}
               className="font-body text-xs text-cream/30 hover:text-gold transition-colors duration-200"
             >
               Privacy Policy

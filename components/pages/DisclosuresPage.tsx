@@ -1,4 +1,7 @@
-import Link from 'next/link';
+'use client';
+
+import TrackedExternalLink from '@/components/analytics/TrackedExternalLink';
+import TrackedLink from '@/components/analytics/TrackedLink';
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
@@ -103,21 +106,26 @@ export default function DisclosuresPage() {
               (&quot;Disclosure Brochure&quot;), Form ADV Part 2B, which is the Brochure Supplement for each
               advisory person supporting a particular client. You may obtain a copy of these disclosures on the
               SEC website at{' '}
-              <a
+              <TrackedExternalLink
                 href="https://adviserinfo.sec.gov"
+                label="SEC adviserinfo.sec.gov"
+                linkLocation="disclosures_page"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gold underline underline-offset-2 hover:text-gold-light transition-colors"
               >
                 adviserinfo.sec.gov
-              </a>{' '}
+              </TrackedExternalLink>{' '}
               or you may contact us at{' '}
-              <a
+              <TrackedExternalLink
                 href="mailto:f.hasan@montreuxwealth.com"
+                label="f.hasan@montreuxwealth.com"
+                linkLocation="disclosures_page"
+                linkType="email"
                 className="text-gold underline underline-offset-2 hover:text-gold-light transition-colors"
               >
                 f.hasan@montreuxwealth.com
-              </a>{' '}
+              </TrackedExternalLink>{' '}
               to request a free copy via .pdf or hardcopy.
             </P>
           </Section>
@@ -161,12 +169,13 @@ export default function DisclosuresPage() {
             </P>
             <P>
               For a copy of the Montreux Privacy Policy, please{' '}
-              <Link
+              <TrackedLink
                 href="/privacy-policy"
+                tracking={{ type: 'nav', item: 'Privacy Policy', location: 'disclosures_page' }}
                 className="text-gold underline underline-offset-2 hover:text-gold-light transition-colors"
               >
                 click here
-              </Link>
+              </TrackedLink>
               .
             </P>
           </Section>

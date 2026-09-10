@@ -220,7 +220,7 @@ function TabPanel({ tab, visible }: { tab: Tab; visible: boolean }) {
 
 export default function InvestmentManagementPage() {
   const [activeTab, setActiveTab] = useState(0);
-  const { track, events } = useAnalytics();
+  const { track, events, trackCta, trackContactScroll } = useAnalytics();
 
   const handleTabChange = (tabName: string) => {
     track(events.INVESTMENT_TAB_CHANGED, { tab_name: tabName });
@@ -353,6 +353,7 @@ export default function InvestmentManagementPage() {
               href="/#contact"
               onClick={(e) => {
                 e.preventDefault();
+                trackContactScroll('investment_management_cta');
                 window.location.href = '/';
                 setTimeout(() => {
                   document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
@@ -364,6 +365,9 @@ export default function InvestmentManagementPage() {
             </Link>
             <Link
               href="/financial-planning"
+              onClick={() =>
+                trackCta('View Financial Planning', 'investment_management_cta', '/financial-planning')
+              }
               className="border border-gold text-gold px-8 py-3 text-sm tracking-widest uppercase font-medium hover:bg-gold hover:text-navy transition-all duration-300 font-body"
             >
               View Financial Planning →

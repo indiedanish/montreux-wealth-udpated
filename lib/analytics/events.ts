@@ -26,6 +26,8 @@ export const ANALYTICS_EVENTS = {
   MOBILE_MENU_OPENED: 'mobile_menu_opened',
   /** Services dropdown opened (desktop) */
   SERVICES_MENU_OPENED: 'services_menu_opened',
+  /** External link or mailto clicked */
+  EXTERNAL_LINK_CLICKED: 'external_link_clicked',
 } as const;
 
 export type AnalyticsEventName = (typeof ANALYTICS_EVENTS)[keyof typeof ANALYTICS_EVENTS];

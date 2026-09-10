@@ -1,8 +1,10 @@
 'use client';
 import Link from 'next/link';
+import TrackedLink from '@/components/analytics/TrackedLink';
 import CalculatorPreviewCard from '@/components/CalculatorPreviewCard';
 import CampaignContact from '@/components/CampaignContact';
 import FaqSection from '@/components/FaqSection';
+import { useAnalytics } from '@/hooks/useAnalytics';
 import { CASH_BALANCE_FAQ } from '@/lib/site';
 
 const benefits = [
@@ -96,7 +98,10 @@ const caseStudies = [
 ];
 
 export default function CashBalancePlansPage() {
-  const scrollToContact = () => {
+  const { trackCta, trackContactScroll } = useAnalytics();
+
+  const scrollToContact = (cta_location: string, cta_text: string) => {
+    trackContactScroll(cta_location, cta_text);
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -142,6 +147,9 @@ export default function CashBalancePlansPage() {
           <div className="flex flex-col items-center gap-5 mt-12 w-full max-w-lg mx-auto">
             <Link
               href="/cash-balance-calculator"
+              onClick={() =>
+                trackCta('Calculate My Tax Savings', 'cash_balance_plans_hero', '/cash-balance-calculator')
+              }
               className="group flex items-center justify-center gap-3 w-full bg-gold text-navy px-10 py-5 text-base tracking-widest uppercase font-semibold hover:bg-gold-light transition-all duration-300 font-body shadow-lg shadow-gold/25 hover:shadow-gold/40"
             >
               Calculate My Tax Savings
@@ -156,7 +164,7 @@ export default function CashBalancePlansPage() {
               </svg>
             </Link>
             <button
-              onClick={scrollToContact}
+              onClick={() => scrollToContact('cash_balance_plans_hero', 'Request a Free Consultation')}
               className="w-full border border-gold/60 text-gold px-8 py-3 text-sm tracking-widest uppercase font-medium hover:bg-gold/10 transition-all duration-300 font-body"
             >
               Request a Free Consultation
@@ -231,6 +239,13 @@ export default function CashBalancePlansPage() {
           <div className="text-center mt-10">
             <Link
               href="/cash-balance-calculator"
+              onClick={() =>
+                trackCta(
+                  'Calculate My Tax Savings',
+                  'cash_balance_plans_tax_calendar',
+                  '/cash-balance-calculator',
+                )
+              }
               className="inline-flex items-center justify-center gap-2 bg-gold text-navy px-10 py-4 text-sm tracking-widest uppercase font-semibold hover:bg-gold-light transition-all duration-300 font-body shadow-md"
             >
               Calculate My Tax Savings →
@@ -397,24 +412,27 @@ export default function CashBalancePlansPage() {
                 table, the savings are not incidental — they are structural.
               </p>
               <div className="flex flex-wrap gap-4 mt-10">
-                <Link
+                <TrackedLink
                   href="/investment-management"
+                  tracking={{ type: 'nav', item: 'Investment Management', location: 'cash_balance_plans_cross_sell' }}
                   className="font-body text-sm text-gold hover:text-gold-light transition-colors tracking-wide"
                 >
                   Investment Management →
-                </Link>
-                <Link
+                </TrackedLink>
+                <TrackedLink
                   href="/financial-planning"
+                  tracking={{ type: 'nav', item: 'Financial Planning', location: 'cash_balance_plans_cross_sell' }}
                   className="font-body text-sm text-gold hover:text-gold-light transition-colors tracking-wide"
                 >
                   Financial Planning →
-                </Link>
-                <Link
+                </TrackedLink>
+                <TrackedLink
                   href="/accounting-tax"
+                  tracking={{ type: 'nav', item: 'Accounting & Tax', location: 'cash_balance_plans_cross_sell' }}
                   className="font-body text-sm text-gold hover:text-gold-light transition-colors tracking-wide"
                 >
                   Accounting & Tax →
-                </Link>
+                </TrackedLink>
               </div>
             </div>
             <div className="bg-cream p-12">
@@ -443,7 +461,7 @@ export default function CashBalancePlansPage() {
             overall tax strategy. No turf wars. No disruption. Just a smarter, aligned approach.
           </p>
           <button
-            onClick={scrollToContact}
+            onClick={() => scrollToContact('cash_balance_plans_cpa_section', 'Start the Conversation')}
             className="mt-10 bg-gold text-navy px-8 py-3 text-sm tracking-widest uppercase font-medium hover:bg-gold-light transition-all duration-300 font-body"
           >
             Start the Conversation →
@@ -466,9 +484,13 @@ export default function CashBalancePlansPage() {
             individual circumstances. Illustrations and calculator results are hypothetical and do not
             guarantee future results. Montreux Wealth Management is a registered investment adviser.
             Please review our{' '}
-            <Link href="/disclosures" className="text-gold/60 hover:text-gold underline">
+            <TrackedLink
+              href="/disclosures"
+              tracking={{ type: 'nav', item: 'Disclosures', location: 'cash_balance_plans_footer' }}
+              className="text-gold/60 hover:text-gold underline"
+            >
               disclosures
-            </Link>{' '}
+            </TrackedLink>{' '}
             for important information.
           </p>
         </div>

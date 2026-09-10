@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
@@ -179,8 +180,11 @@ const steps = [
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function FinancialPlanningPage() {
+  const { trackCta, trackContactScroll } = useAnalytics();
+
   const scrollToContact = (e: React.MouseEvent) => {
     e.preventDefault();
+    trackContactScroll('financial_planning_cta');
     window.scrollTo({ top: 0 });
     setTimeout(() => (window.location.href = '/#contact'), 50);
   };
@@ -373,6 +377,9 @@ export default function FinancialPlanningPage() {
             </a>
             <Link
               href="/accounting-tax"
+              onClick={() =>
+                trackCta('View Accounting & Tax', 'financial_planning_cta', '/accounting-tax')
+              }
               className="border border-gold text-gold px-8 py-3 text-sm tracking-widest uppercase font-medium hover:bg-gold hover:text-navy transition-all duration-300 font-body"
             >
               View Accounting & Tax →

@@ -1,4 +1,6 @@
-import Link from 'next/link';
+'use client';
+
+import TrackedLink from '@/components/analytics/TrackedLink';
 
 export default function PrivacyPolicyPage() {
   return (
@@ -59,12 +61,13 @@ export default function PrivacyPolicyPage() {
           </p>
           <p className="pt-4">
             For additional regulatory disclosures, please review our{' '}
-            <Link
+            <TrackedLink
               href="/disclosures"
+              tracking={{ type: 'nav', item: 'Disclosures', location: 'privacy_policy_page' }}
               className="text-gold underline underline-offset-2 hover:text-gold-light transition-colors"
             >
               Disclosures page
-            </Link>
+            </TrackedLink>
             .
           </p>
         </div>

@@ -50,7 +50,7 @@ function StepIndicator({ step }: { step: 1 | 2 }) {
 }
 
 export default function CashBalanceCalculatorPage() {
-  const { track, events } = useAnalytics();
+  const { track, events, trackNavClick } = useAnalytics();
   const [step, setStep] = useState<1 | 2>(1);
   const [results, setResults] = useState<CalculatorResults | null>(null);
   const bookingRef = useRef<HTMLDivElement>(null);
@@ -160,7 +160,11 @@ export default function CashBalanceCalculatorPage() {
         <div className="max-w-4xl mx-auto px-6">
           <p className="font-body text-cream/40 text-xs leading-relaxed text-center">
             Montreux Wealth Management is a registered investment adviser. Please review our{' '}
-            <Link href="/disclosures" className="text-gold/60 hover:text-gold underline">
+            <Link
+              href="/disclosures"
+              onClick={() => trackNavClick('Disclosures', '/disclosures', 'calculator_footer')}
+              className="text-gold/60 hover:text-gold underline"
+            >
               disclosures
             </Link>
             .

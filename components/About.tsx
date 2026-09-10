@@ -1,12 +1,15 @@
 'use client';
 import { useEffect, useRef } from 'react';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 export default function About() {
+  const { trackContactScroll } = useAnalytics();
   const textRef = useRef<HTMLDivElement>(null);
   const geoRef = useRef<HTMLDivElement>(null);
 
   const scrollToContact = (e: React.MouseEvent) => {
     e.preventDefault();
+    trackContactScroll('about_section');
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
