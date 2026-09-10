@@ -108,7 +108,7 @@ export default function Hero() {
         </p>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-4 mt-12 w-full max-w-2xl mx-auto">
+        <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center sm:justify-center gap-4 mt-12 w-full max-w-3xl mx-auto">
           <a
             href="#contact"
             onClick={scrollToContact}
@@ -116,6 +116,19 @@ export default function Hero() {
           >
             Begin the Conversation →
           </a>
+          <Link
+            href="/cash-balance-plans"
+            onClick={() =>
+              track(events.CTA_CLICKED, {
+                cta_text: 'Cash Balance Plans',
+                cta_location: 'hero',
+                destination: '/cash-balance-plans',
+              })
+            }
+            className="inline-flex items-center justify-center w-full sm:w-auto min-h-[3.25rem] px-8 py-3.5 text-sm tracking-widest uppercase font-semibold leading-none border border-gold text-gold box-border hover:bg-gold hover:text-navy transition-all duration-300 font-body"
+          >
+            Cash Balance Plans →
+          </Link>
           <Link
             href="/cash-balance-calculator"
             onClick={() =>

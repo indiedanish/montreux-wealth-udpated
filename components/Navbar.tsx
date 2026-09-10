@@ -51,6 +51,7 @@ export default function Navbar() {
     { label: 'Financial Planning', href: '/financial-planning' },
     { label: 'Accounting & Tax', href: '/accounting-tax' },
     { label: 'Cash Balance Plans', href: '/cash-balance-plans' },
+    { label: 'Tax Savings Calculator', href: '/cash-balance-calculator' },
   ];
 
   const handleAnchorNav = (sectionId: string, label: string) => {
@@ -109,7 +110,7 @@ export default function Navbar() {
               </button>
 
               {servicesOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-52 bg-navy border border-gold/20 shadow-2xl">
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-60 bg-navy border border-gold/20 shadow-2xl">
                   {services.map((s) => (
                     <Link
                       key={s.href}
