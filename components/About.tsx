@@ -1,8 +1,6 @@
 'use client';
 import { useEffect, useRef } from 'react';
-import SiteImage from '@/components/SiteImage';
 import { useAnalytics } from '@/hooks/useAnalytics';
-import { SITE_IMAGES } from '@/lib/images';
 
 export default function About() {
   const { trackContactScroll } = useAnalytics();
@@ -79,20 +77,27 @@ export default function About() {
             </a>
           </div>
 
-          {/* Right: NYC advisory imagery */}
+          {/* Right: geometric accent */}
           <div ref={geoRef} className="scroll-reveal relative" style={{ animationDelay: '150ms', transitionDelay: '150ms' }}>
-            <div className="relative aspect-[4/5] w-full max-w-md mx-auto overflow-hidden border border-gold/30 shadow-2xl">
-              <SiteImage
-                {...SITE_IMAGES.businessHandshake}
-                fill
-                sizes="(max-width: 768px) 100vw, 448px"
-                className="object-cover"
+            <div className="relative aspect-[4/5] w-full max-w-md mx-auto border border-gold/30 shadow-2xl bg-[#111d2e] flex flex-col items-center justify-center p-10">
+              <div
+                className="absolute inset-0 pointer-events-none opacity-40"
+                style={{
+                  backgroundImage: `
+                    linear-gradient(45deg, rgba(201,168,76,0.06) 1px, transparent 1px),
+                    linear-gradient(-45deg, rgba(201,168,76,0.06) 1px, transparent 1px)
+                  `,
+                  backgroundSize: '40px 40px',
+                }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-8 text-center">
+              <div className="relative text-center">
                 <p className="font-heading italic text-gold text-3xl leading-tight">Est. New York</p>
                 <p className="font-body text-xs tracking-widest text-cream/70 mt-2 uppercase">
                   Wealth Management
+                </p>
+                <div className="w-16 h-px bg-gold/40 mx-auto mt-8" />
+                <p className="font-body text-cream/50 text-sm leading-relaxed mt-8 max-w-xs">
+                  CFA + CPA leadership · Integrated advisory · Discretion by design
                 </p>
               </div>
             </div>

@@ -1,9 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import SiteImage from '@/components/SiteImage';
 import { useAnalytics } from '@/hooks/useAnalytics';
-import { SITE_IMAGES } from '@/lib/images';
 
 export default function CashBalancePromo() {
   const { track, events } = useAnalytics();
@@ -15,9 +13,7 @@ export default function CashBalancePromo() {
           <div className="flex flex-col justify-center">
             <div className="flex items-center gap-4 mb-6">
               <div className="w-12 h-px bg-gold" />
-              <span className="font-body text-xs tracking-widest uppercase text-gold">
-                For Business Owners
-              </span>
+              <span className="font-body text-xs tracking-widest uppercase text-gold">For Business Owners</span>
             </div>
             <h2 className="font-heading font-light text-3xl md:text-4xl text-cream leading-snug">
               Potentially Reduce Taxes While
@@ -41,27 +37,10 @@ export default function CashBalancePromo() {
             >
               Learn about Cash Balance Plans →
             </Link>
-            <div className="relative aspect-[16/10] w-full max-w-lg mt-10 overflow-hidden border border-gold/20 lg:hidden">
-              <SiteImage
-                {...SITE_IMAGES.businessOwner}
-                fill
-                sizes="100vw"
-                className="object-cover"
-              />
-            </div>
           </div>
 
-          <div className="relative min-h-[360px] flex flex-col justify-end">
-            <div className="absolute inset-0 overflow-hidden border border-gold/20 hidden lg:block">
-              <SiteImage
-                {...SITE_IMAGES.financeCharts}
-                fill
-                sizes="50vw"
-                className="object-cover opacity-40"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#111d2e] via-navy/60 to-navy/40" />
-            </div>
-            <div className="relative bg-[#111d2e] border border-gold/20 p-10 md:p-12 text-center lg:text-left lg:m-6">
+          <div className="flex flex-col justify-center">
+            <div className="bg-[#111d2e] border border-gold/20 p-10 md:p-12 text-center lg:text-left">
               <p className="font-body text-xs tracking-widest uppercase text-gold/70">Free · 60 Seconds</p>
               <p className="font-heading font-light text-4xl text-gold mt-3">Tax Savings Calculator</p>
               <p className="font-body text-cream/50 text-sm leading-relaxed mt-4">

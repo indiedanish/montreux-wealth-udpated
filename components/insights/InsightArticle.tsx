@@ -5,13 +5,11 @@ import TrackedLink from '@/components/analytics/TrackedLink';
 import FaqSection from '@/components/FaqSection';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import ArticleSchema from '@/components/insights/ArticleSchema';
-import SiteImage from '@/components/SiteImage';
 import {
   ALL_INSIGHT_POSTS,
   INSIGHT_CATEGORY_LABELS,
   type InsightPost,
 } from '@/lib/insights';
-import { getInsightImage } from '@/lib/images';
 import { CONTACT_EMAIL, SITE_NAME } from '@/lib/site';
 
 type InsightArticleProps = {
@@ -28,7 +26,6 @@ function formatDate(iso: string) {
 
 export default function InsightArticle({ post }: InsightArticleProps) {
   const { trackCta } = useAnalytics();
-  const heroImage = getInsightImage(post.slug, post.category);
   const relatedPosts = ALL_INSIGHT_POSTS.filter(
     (p) => p.slug !== post.slug && p.category === post.category,
   ).slice(0, 3);
@@ -38,19 +35,10 @@ export default function InsightArticle({ post }: InsightArticleProps) {
       <ArticleSchema post={post} />
 
       <section className="relative bg-navy pt-28 pb-12 overflow-hidden min-h-[420px] flex flex-col justify-end">
-        <div className="absolute inset-0">
-          <SiteImage
-            {...heroImage}
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-center opacity-35"
-          />
-          <div
-            className="absolute inset-0"
-            style={{ background: 'radial-gradient(ellipse at center, rgba(13,27,42,0.4) 0%, #0D1B2A 75%)' }}
-          />
-        </div>
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse at center, #1C1C1E 0%, #0D1B2A 75%)' }}
+        />
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center pb-4">
           <Link
             href="/insights"

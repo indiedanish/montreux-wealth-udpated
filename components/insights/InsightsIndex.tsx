@@ -1,14 +1,12 @@
 'use client';
 
 import TrackedLink from '@/components/analytics/TrackedLink';
-import SiteImage from '@/components/SiteImage';
 import {
   ALL_INSIGHT_POSTS,
   INSIGHT_CATEGORY_LABELS,
   getInsightsByCategory,
   type InsightCategory,
 } from '@/lib/insights';
-import { getInsightImage, SITE_IMAGES } from '@/lib/images';
 
 const CATEGORIES: InsightCategory[] = ['cash-balance', 'integrated-wealth', 'tax-planning'];
 
@@ -20,16 +18,12 @@ export default function InsightsIndex() {
   return (
     <main>
       <section className="relative bg-navy pt-28 pb-16 overflow-hidden min-h-[360px] flex items-end">
-        <div className="absolute inset-0">
-          <SiteImage
-            {...SITE_IMAGES.strategyMeeting}
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover opacity-30"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy/80 via-navy/70 to-navy" />
-        </div>
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'radial-gradient(ellipse at center, #1C1C1E 0%, #0D1B2A 70%)',
+          }}
+        />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center pb-4 w-full">
           <div className="flex items-center gap-4 justify-center mb-6">
             <div className="w-12 h-px bg-gold" />
@@ -67,16 +61,8 @@ export default function InsightsIndex() {
                           item: post.title,
                           location: 'insights_index',
                         }}
-                        className="group block h-full bg-white border border-gray-100 hover:border-gold hover:shadow-lg transition-all duration-300 overflow-hidden"
+                        className="group block h-full bg-white border border-gray-100 hover:border-gold hover:shadow-lg transition-all duration-300"
                       >
-                        <div className="relative aspect-[16/10] w-full overflow-hidden">
-                          <SiteImage
-                            {...getInsightImage(post.slug, post.category)}
-                            fill
-                            sizes="(max-width: 768px) 100vw, 400px"
-                            className="object-cover transition-transform duration-500 group-hover:scale-105"
-                          />
-                        </div>
                         <div className="p-8">
                         <p className="font-body text-xs text-text-muted">{formatDate(post.updatedAt)}</p>
                         <h3 className="font-heading font-semibold text-xl text-navy group-hover:text-gold transition-colors mt-3 leading-snug">
