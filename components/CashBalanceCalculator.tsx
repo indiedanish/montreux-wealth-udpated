@@ -1,5 +1,6 @@
 'use client';
 import { useMemo, useRef, useState } from 'react';
+import CalculatorSlider from '@/components/CalculatorSlider';
 import { useAnalytics } from '@/hooks/useAnalytics';
 import {
   LIMIT_401K_2026,
@@ -43,7 +44,7 @@ export default function CashBalanceCalculator({ onContinue }: CashBalanceCalcula
         employees,
         yearsToRetirement,
       }),
-    [age, income, contribution401k, federalRate, stateProfile, employees, yearsToRetirement]
+    [age, income, contribution401k, federalRate, stateProfile, employees, yearsToRetirement],
   );
 
   const selectClass =
@@ -55,73 +56,80 @@ export default function CashBalanceCalculator({ onContinue }: CashBalanceCalcula
       <div className="grid grid-cols-1 lg:grid-cols-2">
         {/* Inputs */}
         <div className="p-6 md:p-10 border-b lg:border-b-0 lg:border-r border-gray-100">
-          <p className="font-body text-xs tracking-widest uppercase text-gold mb-6">Your Profile</p>
+          <p className="font-body text-xs tracking-widest uppercase text-gold mb-2">Your Profile</p>
+          <p className="font-body text-sm text-text-muted mb-8">
+            Drag the sliders to match your situation. Your estimate updates instantly.
+          </p>
 
-          <div className="space-y-6">
-            <div>
-              <label htmlFor="cb-age" className={labelClass}>
-                Your Age - {age}
-              </label>
-              <input
-                id="cb-age"
-                type="range"
-                min={30}
-                max={70}
-                value={age}
-                onChange={(e) => {
-                  markStarted();
-                  setAge(Number(e.target.value));
-                }}
-                className="w-full accent-gold"
-              />
-            </div>
+          <div className="space-y-10">
+            <CalculatorSlider
+              id="cb-age"
+              label="Your Age"
+              value={age}
+              min={30}
+              max={70}
+              step={1}
+              onChange={(v) => {
+                markStarted();
+                setAge(v);
+              }}
+              formatValue={(v) => `${v} years`}
+              scaleMarks={[
+                { value: 30, label: '30' },
+                { value: 40, label: '40' },
+                { value: 50, label: '50' },
+                { value: 60, label: '60' },
+                { value: 70, label: '70' },
+              ]}
+            />
 
-            <div>
-              <label htmlFor="cb-income" className={labelClass}>
-                Annual W-2 / Net Business Income
-              </label>
-              <input
-                id="cb-income"
-                type="range"
-                min={200000}
-                max={2000000}
-                step={25000}
-                value={income}
-                onChange={(e) => {
-                  markStarted();
-                  setIncome(Number(e.target.value));
-                }}
-                className="w-full accent-gold"
-              />
-              <p className="font-heading text-xl text-navy mt-2">{formatCurrency(income)}</p>
-            </div>
+            <CalculatorSlider
+              id="cb-income"
+              label="Annual W-2 / Net Business Income"
+              value={income}
+              min={200000}
+              max={2000000}
+              step={25000}
+              onChange={(v) => {
+                markStarted();
+                setIncome(v);
+              }}
+              formatValue={formatCurrency}
+              scaleMarks={[
+                { value: 200000, label: '$200K' },
+                { value: 500000, label: '$500K' },
+                { value: 1000000, label: '$1M' },
+                { value: 1500000, label: '$1.5M' },
+                { value: 2000000, label: '$2M' },
+              ]}
+              hint="What you earn before taxes from salary or business profits."
+            />
 
-            <div>
-              <label htmlFor="cb-401k" className={labelClass}>
-                Current Annual 401(k) Contribution
-              </label>
-              <input
-                id="cb-401k"
-                type="range"
-                min={0}
-                max={LIMIT_401K_2026}
-                step={5000}
-                value={contribution401k}
-                onChange={(e) => {
-                  markStarted();
-                  setContribution401k(Number(e.target.value));
-                }}
-                className="w-full accent-gold"
-              />
-              <p className="font-body text-sm text-text-muted mt-2">
-                {formatCurrency(contribution401k)} · 2026 limit: {formatCurrency(LIMIT_401K_2026)}
-              </p>
-            </div>
+            <CalculatorSlider
+              id="cb-401k"
+              label="Current Annual 401(k) Contribution"
+              value={contribution401k}
+              min={0}
+              max={LIMIT_401K_2026}
+              step={5000}
+              onChange={(v) => {
+                markStarted();
+                setContribution401k(v);
+              }}
+              formatValue={formatCurrency}
+              scaleMarks={[
+                { value: 0, label: '$0' },
+                { value: 25000, label: '$25K' },
+                { value: 50000, label: '$50K' },
+                { value: LIMIT_401K_2026, label: '$70K max' },
+              ]}
+              hint={`2026 combined 401(k) + profit-sharing limit: ${formatCurrency(LIMIT_401K_2026)}`}
+            />
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="cb-federal" className={labelClass}>
-                  Federal Rate
+                  Federal Tax Rate
                 </label>
                 <select
                   id="cb-federal"
@@ -178,23 +186,27 @@ export default function CashBalanceCalculator({ onContinue }: CashBalanceCalcula
               </select>
             </div>
 
-            <div>
-              <label htmlFor="cb-years" className={labelClass}>
-                Years to Retirement - {yearsToRetirement}
-              </label>
-              <input
-                id="cb-years"
-                type="range"
-                min={5}
-                max={25}
-                value={yearsToRetirement}
-                onChange={(e) => {
-                  markStarted();
-                  setYearsToRetirement(Number(e.target.value));
-                }}
-                className="w-full accent-gold"
-              />
-            </div>
+            <CalculatorSlider
+              id="cb-years"
+              label="Years Until Retirement"
+              value={yearsToRetirement}
+              min={5}
+              max={25}
+              step={1}
+              onChange={(v) => {
+                markStarted();
+                setYearsToRetirement(v);
+              }}
+              formatValue={(v) => `${v} years`}
+              scaleMarks={[
+                { value: 5, label: '5' },
+                { value: 10, label: '10' },
+                { value: 15, label: '15' },
+                { value: 20, label: '20' },
+                { value: 25, label: '25' },
+              ]}
+              hint="How long you plan to keep contributing before retiring."
+            />
           </div>
         </div>
 
