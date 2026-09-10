@@ -3,7 +3,8 @@
 ## Setup (required from you)
 
 1. Create a project at [PostHog](https://posthog.com) (US or EU region).
-2. Copy your **Project API Key** from Project Settings.
+2. Copy your **Project API Key** (`phc_...`) from **Project Settings → Project API Key**.
+   - Do **not** use a Personal API key (`phx_...`) — that is for the REST API only and will not capture events.
 3. Add to `.env.local`:
 
 ```env
